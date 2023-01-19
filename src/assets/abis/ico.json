@@ -1,0 +1,216 @@
+[
+  {
+    "anonymous": null,
+    "name": null,
+    "inputs": [],
+    "outputs": [],
+    "type": "constructor",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "OwnershipTransferred",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
+    "stateMutability": null
+  },
+  {
+    "anonymous": null,
+    "name": "PriceForOneTokenChanged",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "setter",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
+    "stateMutability": null
+  },
+  {
+    "anonymous": null,
+    "name": "TokenAddressSet",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "setter",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
+    "stateMutability": null
+  },
+  {
+    "anonymous": null,
+    "name": "TokenBought",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
+    "stateMutability": null
+  },
+  {
+    "anonymous": null,
+    "name": "Token",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": null,
+    "name": "buy",
+    "inputs": [],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "payable"
+  },
+  {
+    "anonymous": null,
+    "name": "claimProfits",
+    "inputs": [],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "claimTokensNotSold",
+    "inputs": [],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "connectToOtherContracts",
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_contracts",
+        "type": "address[]"
+      }
+    ],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "exchangeRate",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": null,
+    "name": "owner",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": null,
+    "name": "priceForOneToken",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": null,
+    "name": "renounceOwnership",
+    "inputs": [],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "transferOwnership",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": null,
+    "name": "updatePriceForOneToken",
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  }
+]
