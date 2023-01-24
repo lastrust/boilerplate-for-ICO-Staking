@@ -20,13 +20,13 @@ type DropdownItemProps = {
   href: string;
 };
 
-export function MenuItem({
+export const MenuItem = ({
   name,
   icon,
   href,
   dropdownItems,
   isActive,
-}: MenuItemProps) {
+}: MenuItemProps) => {
   const router = useRouter();
   const {
     query: { layout },

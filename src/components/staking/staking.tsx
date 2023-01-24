@@ -43,7 +43,7 @@ const BlockchainOptions = [
     },
 ];
 
-export default function Staking() {
+export const Staking = () => {
     let [publish, setPublish] = useState(true);
     let [explicit, setExplicit] = useState(false);
     let [unlocked, setUnlocked] = useState(false);

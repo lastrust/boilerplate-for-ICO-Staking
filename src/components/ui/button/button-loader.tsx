@@ -3,13 +3,13 @@ import Loader, {
   LoaderVariantTypes,
 } from '@/components/ui/loader';
 
-export default function ButtonLoader({
+export const ButtonLoader = ({
   size,
   variant,
 }: {
   size: LoaderSizeTypes;
   variant: LoaderVariantTypes;
-}) {
+}) => {
   return (
     <span className="absolute inset-0 h-full w-full flex items-center justify-center">
       <Loader

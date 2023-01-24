@@ -4,7 +4,7 @@ interface InputLabelProps {
   important?: boolean;
 }
 
-function InputLabel({ title, subTitle, important }: InputLabelProps) {
+const InputLabel = ({ title, subTitle, important }: InputLabelProps) => {
   return (
     <div className="relative mb-3">
       <span className="block text-sm font-medium tracking-wider dark:text-white">

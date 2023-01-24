@@ -3,7 +3,7 @@ interface HamburgerProps extends ButtonProps {
   isOpen?: boolean;
 }
 
-export default function Hamburger({ isOpen, ...props }: HamburgerProps) {
+export const Hamburger = ({ isOpen, ...props }: HamburgerProps) => {
   return (
     <Button aria-label="Hamburger" shape="circle" {...props}>
       <svg

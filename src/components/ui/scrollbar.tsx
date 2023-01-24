@@ -10,13 +10,13 @@ interface ScrollbarProps extends OverlayScrollbarsComponentProps {
   autoHide?: 'never' | 'scroll' | 'leave' | 'move';
 }
 
-export default function Scrollbar({
+export const Scrollbar = ({
   options,
   style,
   className,
   autoHide = 'scroll',
   ...props
-}: React.PropsWithChildren<ScrollbarProps>) {
+}: React.PropsWithChildren<ScrollbarProps>) => {
   return (
     <OverlayScrollbarsComponent
       options={{

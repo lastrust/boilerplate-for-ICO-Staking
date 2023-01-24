@@ -44,7 +44,7 @@ const BlockchainOptions = [
     },
 ];
 
-export default function ICO() {
+export const ICO = () => {
     let [publish, setPublish] = useState(true);
     let [explicit, setExplicit] = useState(false);
     let [unlocked, setUnlocked] = useState(false);

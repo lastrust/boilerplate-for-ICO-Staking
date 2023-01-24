@@ -8,11 +8,11 @@ interface CollapseProps {
   initialOpen?: boolean;
 }
 
-export default function Collapse({
+export const Collapse = ({
   label,
   children,
   initialOpen = false,
-}: React.PropsWithChildren<CollapseProps>) {
+}: React.PropsWithChildren<CollapseProps>) => {
   let [isOpen, setIsOpen] = useState(false);
   const [ref, { height }] = useMeasure<HTMLDivElement>();
 

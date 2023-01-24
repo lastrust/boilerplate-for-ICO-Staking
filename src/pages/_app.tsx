@@ -2,8 +2,7 @@ import type {AppProps} from 'next/app';
 import type {NextPageWithLayout} from '@/types';
 import Head from 'next/head';
 import {ThemeProvider} from 'next-themes';
-import ModalsContainer from '@/components/modal-views/container';
-import DrawersContainer from '@/components/drawer-views/container';
+import {DrawersContainer} from '@/components/drawer-views/container';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {WalletProvider} from '@/lib/hooks/use-connect';
@@ -13,12 +12,13 @@ import 'swiper/css';
 import '@/assets/css/scrollbar.css';
 import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
+import {ModalContainer} from "@/components/modal-views/container";
 
 type AppPropsWithLayout = AppProps & {
     Component: NextPageWithLayout;
 };
 
-function CustomApp({Component, pageProps}: AppPropsWithLayout) {
+const CustomApp = ({Component, pageProps}: AppPropsWithLayout) => {
     //could remove this if you don't need to page level layout
     const getLayout = Component.getLayout ?? ((page) => page);
     return (
@@ -41,7 +41,7 @@ function CustomApp({Component, pageProps}: AppPropsWithLayout) {
                     {getLayout(<Component {...pageProps} />)}
                     {/*<SettingsButton />*/}
                     {/*<SettingsDrawer />*/}
-                    <ModalsContainer/>
+                    <ModalContainer/>
                     <DrawersContainer/>
 
                 </WalletProvider>

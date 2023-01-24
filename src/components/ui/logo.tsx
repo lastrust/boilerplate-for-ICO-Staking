@@ -5,7 +5,7 @@ import lightLogo from '@/assets/images/bunzz/Vector.png';
 import routes from '@/config/routes';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 
-export default function Logo() {
+export const Logo = () => {
   const router = useRouter();
   const {
     query: { layout },

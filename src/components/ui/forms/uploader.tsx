@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Button from '@/components/ui/button';
 
-function Uploader() {
+const Uploader = () => {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     // @ts-ignore

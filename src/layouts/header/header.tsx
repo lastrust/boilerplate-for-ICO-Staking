@@ -11,7 +11,7 @@ import { useDrawer } from '@/components/drawer-views/context';
 import WalletConnect from '@/components/nft/wallet-connect';
 import routes from '@/config/routes';
 
-function NotificationButton() {
+const NotificationButton = () => {
   return (
     <ActiveLink href={routes.notification}>
       <div className="relative flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-100 bg-white text-brand shadow-main transition-all hover:-translate-y-0.5 hover:shadow-large focus:-translate-y-0.5 focus:shadow-large focus:outline-none dark:border-gray-700 dark:bg-light-dark dark:text-white sm:h-12 sm:w-12">
@@ -22,7 +22,7 @@ function NotificationButton() {
   );
 }
 
-function HeaderRightArea() {
+const HeaderRightArea = () => {
   return (
     <div className="relative order-last flex shrink-0 items-center gap-4 sm:gap-6 lg:gap-8">
       <NotificationButton />
@@ -31,7 +31,7 @@ function HeaderRightArea() {
   );
 }
 
-export default function Header({ className }: { className?: string }) {
+export const Header = ({ className }: { className?: string }) => {
   const router = useRouter();
   const isMounted = useIsMounted();
   const { openDrawer } = useDrawer();

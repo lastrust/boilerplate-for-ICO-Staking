@@ -7,7 +7,7 @@ export type DRAWER_VIEW =
   | 'DRAWER_FILTER';
 const drawerAtom = atom({ isOpen: false, view: 'DASHBOARD_SIDEBAR' });
 
-export function useDrawer() {
+export const useDrawer = () => {
   const [state, setState] = useAtom(drawerAtom);
   const openDrawer = (view: DRAWER_VIEW) => {
     setState({ ...state, isOpen: true, view });

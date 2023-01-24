@@ -1,4 +1,4 @@
-export function ArrowLinkIcon(props: React.SVGAttributes<{}>) {
+export const ArrowLinkIcon = (props: React.SVGAttributes<{}>) => {
   return (
     <svg
       viewBox="0 0 12 12"

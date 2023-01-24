@@ -27,7 +27,7 @@ const listboxVariantClasses = {
   transparent: '',
 };
 
-export default function Listbox({
+export const Listbox = ({
   options,
   onChange,
   onSelect,
@@ -35,7 +35,7 @@ export default function Listbox({
   selectedOption,
   className,
   children,
-}: ListboxTypes) {
+}: ListboxTypes) => {
   return (
     <div className={cn('relative', className)}>
       <HeadlessListbox value={selectedOption} onChange={onChange}>

@@ -1,4 +1,4 @@
-export function Bitcoin(props: React.SVGAttributes<{}>) {
+export const Bitcoin = (props: React.SVGAttributes<{}>) => {
   return (
     <svg
       width="24"

@@ -13,7 +13,7 @@ import { LAYOUT_OPTIONS } from '@/lib/constants';
 const SearchView = dynamic(() => import('@/components/search/view'));
 const SelectWallet = dynamic(() => import('@/components/nft/select-wallet'));
 
-function renderModalContent(view: MODAL_VIEW | string) {
+const renderModalContent = (view: MODAL_VIEW | string) => {
   switch (view) {
     case 'SEARCH_VIEW':
       return <SearchView />;
@@ -24,7 +24,7 @@ function renderModalContent(view: MODAL_VIEW | string) {
   }
 }
 
-export default function ModalContainer() {
+export const ModalContainer = () => {
   const router = useRouter();
   const { view, isOpen, closeModal } = useModal();
   const { layout } = useLayout();

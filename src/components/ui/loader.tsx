@@ -21,26 +21,26 @@ const sizes = {
   large: 'w-3 h-3',
 };
 
-function handleLoaderPosition(size: LoaderSizeTypes) {
+const handleLoaderPosition = (size: LoaderSizeTypes) => {
   return size === 'small' ? 'relative top-1.5' : 'relative top-3';
 }
 
-function handleVariantClasses(
+const handleVariantClasses = (
   variant: LoaderVariantTypes,
   size: LoaderSizeTypes
-) {
+) => {
   return variant === 'moveUp' && size === 'small'
     ? 'animate-move-up-small'
     : variants[variant];
 }
 
-export default function Loader({
+export const Loader = ({
   tag = 'div',
   size = 'medium',
   variant = 'moveUp',
   showOnlyThreeDots,
   className,
-}: LoaderTypes) {
+}: LoaderTypes) => {
   let Component = tag;
   return (
     <Component

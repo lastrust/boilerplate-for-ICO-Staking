@@ -8,14 +8,14 @@ import { DRAWER_VIEW, useDrawer } from '@/components/drawer-views/context';
 
 const DrawerMenu = dynamic(() => import('@/layouts/sidebar/_layout-menu'));
 
-function renderDrawerContent(view: DRAWER_VIEW | string) {
+const renderDrawerContent = (view: DRAWER_VIEW | string) => {
   switch (view) {
     default:
       return <DrawerMenu />;
   }
 }
 
-export default function DrawersContainer() {
+export const DrawersContainer = () => {
   const router = useRouter();
   const { view, isOpen, closeDrawer } = useDrawer();
   useEffect(() => {

@@ -1,4 +1,4 @@
-export function Bnb(props: React.SVGAttributes<{}>) {
+export const Bnb = (props: React.SVGAttributes<{}>) => {
   return (
     <svg
       width="24"

@@ -9,13 +9,13 @@ interface ButtonDripTypes {
   onCompleted: () => void;
 }
 
-export default function ButtonDrip({
+export const ButtonDrip = ({
   x = 0,
   y = 0,
   color,
   fullWidth,
   onCompleted,
-}: ButtonDripTypes) {
+}: ButtonDripTypes) => {
   const dripRef = useRef<HTMLDivElement>(null);
   let top = Number.isNaN(+y) ? 0 : y - 10;
   let left = Number.isNaN(+x) ? 0 : x - 10;

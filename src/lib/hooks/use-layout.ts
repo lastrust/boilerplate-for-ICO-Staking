@@ -17,7 +17,7 @@ const cripticLayoutAtomWithPersistence = atom(
 );
 
 // 2. useLayout hook to check which layout is available
-export function useLayout() {
+export const useLayout = () => {
   const [layout, setLayout] = useAtom(cripticLayoutAtomWithPersistence);
   return {
     layout,

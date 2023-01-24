@@ -1,7 +1,7 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import RootLayout from '@/layouts/_root-layout';
+import {RootLayout} from '@/layouts/_root-layout';
 import Image from '@/components/ui/image';
 import AnchorLink from '@/components/ui/links/anchor-link';
 import routes from '@/config/routes';
