@@ -75,7 +75,7 @@ const tags = [
 
 export function SearchFrom({ placeholder = 'Search...' }: SearchFromProps) {
   const { closeModal } = useModal();
-  let [showSuggestion, setShowSuggestion] = useState(false);
+  const [showSuggestion, setShowSuggestion] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   useClickAway(ref, () => {
     setShowSuggestion(false);

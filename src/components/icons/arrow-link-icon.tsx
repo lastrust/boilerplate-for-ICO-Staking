@@ -1,4 +1,6 @@
-export const ArrowLinkIcon = (props: React.SVGAttributes<{}>) => {
+import { FC, SVGProps } from 'react';
+
+export const ArrowLinkIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       viewBox="0 0 12 12"
@@ -16,4 +18,4 @@ export const ArrowLinkIcon = (props: React.SVGAttributes<{}>) => {
       />
     </svg>
   );
-}
+};

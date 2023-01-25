@@ -1,4 +1,6 @@
-export const Bnb = (props: React.SVGAttributes<{}>) => {
+import { FC, SVGProps } from 'react';
+
+export const Bnb: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="24"
@@ -34,4 +36,4 @@ export const Bnb = (props: React.SVGAttributes<{}>) => {
       />
     </svg>
   );
-}
+};

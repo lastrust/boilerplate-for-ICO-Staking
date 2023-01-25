@@ -22,7 +22,7 @@ const renderModalContent = (view: MODAL_VIEW | string) => {
     default:
       return null;
   }
-}
+};
 
 export const ModalContainer = () => {
   const router = useRouter();
@@ -35,7 +35,6 @@ export const ModalContainer = () => {
     return () => {
       router.events.off('routeChangeStart', closeModal);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -97,4 +96,4 @@ export const ModalContainer = () => {
       </Dialog>
     </Transition>
   );
-}
+};

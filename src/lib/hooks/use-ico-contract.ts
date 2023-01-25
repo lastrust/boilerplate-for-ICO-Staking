@@ -1,47 +1,44 @@
-import { useEffect, useState, createContext, ReactNode } from 'react';
-import { ethers, Contract, BigNumber as BN } from 'ethers';
+import { useState } from 'react';
+import { Contract, BigNumber as BN } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
-import ERC20_ABI from "../../assets/abis/erc20.json";
-import ICO_ABI from "../../assets/abis/ico.json";
+import ICO_ABI from '../../assets/abis/ico.json';
 import { toast } from 'react-toastify';
 
-import {OneToken, ICO_ADDRESS} from "@/lib/constants/web3_contants";
+import { ICO_ADDRESS } from '@/lib/constants/web3_contants';
 
-export const useICOContract = (
-    provider: Web3Provider | undefined
-) => {
-    const [icoContract, setICOContract] = useState<Contract>(
-        new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner())
-    );
-    const [tokenPrice, setTokenPrice] = useState<BN>();
+export const useICOContract = (provider: Web3Provider | undefined) => {
+  const [icoContract] = useState<Contract>(
+    new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner())
+  );
+  const [tokenPrice, setTokenPrice] = useState<BN>();
 
-    const getTokenPrice = async () => {
-        const price = await icoContract.exchangeRate();
-        setTokenPrice(price);
+  const getTokenPrice = async () => {
+    const price = await icoContract.exchangeRate();
+    setTokenPrice(price);
+  };
+
+  const buy = async (amount: number) => {
+    if (amount == 0) return;
+    console.log(tokenPrice?.toString(), 'tokenprice');
+    try {
+      const tx = await icoContract.buy({
+        value: tokenPrice?.mul(amount),
+      });
+      console.log(tx);
+      const result = await tx.wait();
+      console.log(result);
+      toast('Token buy successful!');
+    } catch (error) {
+      console.log(error);
+      toast.error('Token buy failed.');
     }
+  };
 
-    const buy = async (amount: number) => {
-        if (amount == 0) return
-        console.log(tokenPrice.toString(), 'tokenprice')
-        try {
-            const tx = await icoContract.buy({
-                value: tokenPrice?.mul(amount)
-            });
-            console.log(tx);
-            const result = await tx.wait();
-            console.log(result);
-            toast('Token buy successful!')
-        } catch (error) {
-            console.log(error)
-            toast.error('Token buy failed.')
-        }
-    }
-
-    return {
-        ICO_ADDRESS,
-        icoContract,
-        tokenPrice,
-        getTokenPrice,
-        buy
-    }
-}
+  return {
+    ICO_ADDRESS,
+    icoContract,
+    tokenPrice,
+    getTokenPrice,
+    buy,
+  };
+};

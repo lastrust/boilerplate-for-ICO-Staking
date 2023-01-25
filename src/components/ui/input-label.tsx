@@ -20,6 +20,6 @@ const InputLabel = ({ title, subTitle, important }: InputLabelProps) => {
       )}
     </div>
   );
-}
+};
 
 export default InputLabel;

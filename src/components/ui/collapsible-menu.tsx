@@ -40,7 +40,6 @@ export const MenuItem = ({
     if (isChildrenActive) {
       setIsOpen(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="mb-2 min-h-[48px] list-none last:mb-0">
@@ -145,4 +144,4 @@ export const MenuItem = ({
       )}
     </div>
   );
-}
+};

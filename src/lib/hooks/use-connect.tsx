@@ -1,6 +1,7 @@
 import { useEffect, useState, createContext, ReactNode } from 'react';
 import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
+import { Web3Provider } from '@ethersproject/providers';
 
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 
@@ -30,11 +31,10 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
         console.log(error, 'Catch error Account is not connected');
       }
     }
-    checkConnection();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    checkConnection().then();
   }, []);
 
-  const setWalletAddress = async (provider: any) => {
+  const setWalletAddress = async (provider: Web3Provider) => {
     try {
       const signer = provider.getSigner();
       if (signer) {
@@ -53,14 +53,14 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     if (address === undefined) return undefined;
     const provider = getProvider();
     return provider?.getSigner();
-  }
+  };
 
   const getProvider = () => {
     if (!window.ethereum) {
-      return undefined
+      return undefined;
     }
     return new ethers.providers.Web3Provider(window.ethereum);
-  }
+  };
 
   const getBalance = async (provider: any, walletAddress: string) => {
     const walletBalance = await provider.getBalance(walletAddress);
@@ -127,7 +127,7 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
         connectToWallet,
         disconnectWallet,
         getProvider,
-        getSigner
+        getSigner,
       }}
     >
       {children}

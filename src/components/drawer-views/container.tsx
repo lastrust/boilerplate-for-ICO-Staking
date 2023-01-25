@@ -13,7 +13,7 @@ const renderDrawerContent = (view: DRAWER_VIEW | string) => {
     default:
       return <DrawerMenu />;
   }
-}
+};
 
 export const DrawersContainer = () => {
   const router = useRouter();
@@ -24,7 +24,6 @@ export const DrawersContainer = () => {
     return () => {
       router.events.off('routeChangeStart', closeDrawer);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -60,4 +59,4 @@ export const DrawersContainer = () => {
       </Dialog>
     </Transition>
   );
-}
+};

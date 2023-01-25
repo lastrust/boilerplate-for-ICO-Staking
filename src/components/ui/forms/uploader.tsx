@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Button from '@/components/ui/button';
@@ -6,7 +5,6 @@ import Button from '@/components/ui/button';
 const Uploader = () => {
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
-    // @ts-ignore
     accept: 'image/*',
     multiple: false,
     onDrop: (acceptedFiles: any) => {
@@ -59,5 +57,5 @@ const Uploader = () => {
       </div>
     </div>
   );
-}
+};
 export default Uploader;

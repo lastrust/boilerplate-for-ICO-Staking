@@ -23,7 +23,7 @@ const sizes = {
 
 const handleLoaderPosition = (size: LoaderSizeTypes) => {
   return size === 'small' ? 'relative top-1.5' : 'relative top-3';
-}
+};
 
 const handleVariantClasses = (
   variant: LoaderVariantTypes,
@@ -32,7 +32,7 @@ const handleVariantClasses = (
   return variant === 'moveUp' && size === 'small'
     ? 'animate-move-up-small'
     : variants[variant];
-}
+};
 
 export const Loader = ({
   tag = 'div',
@@ -41,7 +41,7 @@ export const Loader = ({
   showOnlyThreeDots,
   className,
 }: LoaderTypes) => {
-  let Component = tag;
+  const Component = tag;
   return (
     <Component
       className={cn(
@@ -52,21 +52,21 @@ export const Loader = ({
     >
       <span
         className={cn(
-          'bg-current rounded-full',
+          'rounded-full bg-current',
           handleVariantClasses(variant, size),
           sizes[size]
         )}
       />
       <span
         className={cn(
-          'animation-delay-200 bg-current rounded-full',
+          'animation-delay-200 rounded-full bg-current',
           handleVariantClasses(variant, size),
           sizes[size]
         )}
       />
       <span
         className={cn(
-          'animation-delay-500 bg-current rounded-full',
+          'animation-delay-500 rounded-full bg-current',
           handleVariantClasses(variant, size),
           sizes[size]
         )}
@@ -74,7 +74,7 @@ export const Loader = ({
       {variant === 'moveUp' && !showOnlyThreeDots ? (
         <span
           className={cn(
-            'animation-delay-700 bg-current rounded-full',
+            'animation-delay-700 rounded-full bg-current',
             handleVariantClasses(variant, size),
             sizes[size]
           )}
@@ -82,4 +82,4 @@ export const Loader = ({
       ) : null}
     </Component>
   );
-}
+};

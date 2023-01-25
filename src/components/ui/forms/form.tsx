@@ -6,6 +6,7 @@ import type {
 import type { SchemaOf } from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
 
 type FormProps<TFormValues> = {
   onSubmit: SubmitHandler<TFormValues>;

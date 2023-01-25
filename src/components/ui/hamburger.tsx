@@ -45,4 +45,4 @@ export const Hamburger = ({ isOpen, ...props }: HamburgerProps) => {
       </svg>
     </Button>
   );
-}
+};

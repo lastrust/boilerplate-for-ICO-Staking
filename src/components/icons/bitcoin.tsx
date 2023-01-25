@@ -1,4 +1,6 @@
-export const Bitcoin = (props: React.SVGAttributes<{}>) => {
+import { FC, SVGProps } from 'react';
+
+export const Bitcoin: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="24"
@@ -25,4 +27,4 @@ export const Bitcoin = (props: React.SVGAttributes<{}>) => {
       </defs>
     </svg>
   );
-}
+};

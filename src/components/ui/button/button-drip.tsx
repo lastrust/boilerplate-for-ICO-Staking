@@ -17,14 +17,13 @@ export const ButtonDrip = ({
   onCompleted,
 }: ButtonDripTypes) => {
   const dripRef = useRef<HTMLDivElement>(null);
-  let top = Number.isNaN(+y) ? 0 : y - 10;
-  let left = Number.isNaN(+x) ? 0 : x - 10;
+  const top = Number.isNaN(+y) ? 0 : y - 10;
+  const left = Number.isNaN(+x) ? 0 : x - 10;
   useEffect(() => {
     if (!dripRef.current) return;
     dripRef.current.addEventListener('animationend', onCompleted);
     return () => {
       if (!dripRef.current) return;
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       dripRef.current.removeEventListener('animationend', onCompleted);
     };
   });
@@ -48,6 +47,6 @@ export const ButtonDrip = ({
       </svg>
     </span>
   );
-}
+};
 
 ButtonDrip.displayName = 'ButtonDrip';

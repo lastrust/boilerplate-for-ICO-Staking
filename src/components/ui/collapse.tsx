@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { useMeasure } from '@/lib/hooks/use-measure';
 import { Plus } from '@/components/icons/plus';
@@ -13,7 +12,7 @@ export const Collapse = ({
   children,
   initialOpen = false,
 }: React.PropsWithChildren<CollapseProps>) => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [ref, { height }] = useMeasure<HTMLDivElement>();
 
   useEffect(() => {
@@ -52,4 +51,4 @@ export const Collapse = ({
       </div>
     </div>
   );
-}
+};

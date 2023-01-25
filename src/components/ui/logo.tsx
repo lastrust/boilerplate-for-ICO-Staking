@@ -28,4 +28,4 @@ export const Logo = () => {
       </span>
     </AnchorLink>
   );
-}
+};

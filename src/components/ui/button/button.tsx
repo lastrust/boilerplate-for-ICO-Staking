@@ -1,7 +1,7 @@
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
 import cn from 'classnames';
-import {ButtonDrip} from '@/components/ui/button/button-drip';
-import {ButtonLoader} from '@/components/ui/button/button-loader';
+import { ButtonDrip } from '@/components/ui/button/button-drip';
+import { ButtonLoader } from '@/components/ui/button/button-loader';
 import { LoaderSizeTypes, LoaderVariantTypes } from '@/components/ui/loader';
 type ShapeNames = 'rounded' | 'pill' | 'circle';
 type VariantNames = 'ghost' | 'solid' | 'transparent';
@@ -74,9 +74,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
-    let [dripShow, setDripShow] = useState<boolean>(false);
-    let [dripX, setDripX] = useState<number>(0);
-    let [dripY, setDripY] = useState<number>(0);
+    const [dripShow, setDripShow] = useState<boolean>(false);
+    const [dripX, setDripX] = useState<number>(0);
+    const [dripY, setDripY] = useState<number>(0);
     const colorClassNames = colors[color];
     const sizeClassNames = sizes[size];
     const buttonRef = useRef<HTMLButtonElement>(null);
