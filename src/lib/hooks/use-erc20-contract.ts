@@ -12,9 +12,15 @@ export const useERC20Contract = (provider: Web3Provider | undefined) => {
   const [tokenBalance, setTokenBalance] = useState<BN>();
 
   const getBalance = async (address: string) => {
-    const balance = await erc20Contract.balanceOf(address);
-    setTokenBalance(balance);
-    return balance;
+    try {
+      const balance = await erc20Contract.balanceOf(address);
+      setTokenBalance(balance);
+      return balance;
+    } catch (error) {
+      console.log(error, 'Catch error Account is not connected');
+      setTokenBalance(BN.from(0));
+      return BN.from(0);
+    }
   };
 
   const approveToken = async (spenderAddress: string, amount: number) => {

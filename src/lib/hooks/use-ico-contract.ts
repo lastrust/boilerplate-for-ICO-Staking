@@ -9,11 +9,17 @@ export const useICOContract = (provider: Web3Provider | undefined) => {
   const [icoContract] = useState<Contract>(
     new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner())
   );
+
   const [tokenPrice, setTokenPrice] = useState<BN>();
 
   const getTokenPrice = async () => {
-    const price = await icoContract.exchangeRate();
-    setTokenPrice(price);
+    try {
+      const price = await icoContract.exchangeRate();
+      setTokenPrice(price);
+    } catch (error) {
+      setTokenPrice(BN.from(0));
+      console.log(error, 'Catch error Account is not connected');
+    }
   };
 
   const buy = async (amount: number) => {

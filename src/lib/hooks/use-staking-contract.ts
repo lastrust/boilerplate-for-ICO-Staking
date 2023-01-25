@@ -24,15 +24,19 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
       const userInfo = await stakingContract.userInfo(address);
       setStakedAmount(userInfo[0]);
     } catch (error) {
-      toast.error('Invalid Address');
+      setStakedAmount(BN.from(0));
+      console.log(error, 'Catch error Account is not connected');
     }
   };
 
   const getPendingReward = async (address: string) => {
-    const amount = await stakingContract.getPending(address);
-    console.log(amount, 'amount');
-    console.log(amount.toString(), 'amount');
-    setPendingReward(amount);
+    try {
+      const amount = await stakingContract.getPending(address);
+      setPendingReward(amount);
+    } catch (error) {
+      setPendingReward(BN.from(0));
+      console.log(error, 'Catch error Account is not connected');
+    }
   };
 
   const stake = async (amount: number) => {
