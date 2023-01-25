@@ -56,13 +56,13 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const getProvider = () => {
-    if (!window.ethereum) {
+    if (typeof window == 'undefined') {
       return undefined;
     }
     return new ethers.providers.Web3Provider(window.ethereum);
   };
 
-  const getBalance = async (provider: any, walletAddress: string) => {
+  const getBalance = async (provider: Web3Provider, walletAddress: string) => {
     const walletBalance = await provider.getBalance(walletAddress);
     const balanceInEth = ethers.utils.formatEther(walletBalance);
     setBalance(balanceInEth);

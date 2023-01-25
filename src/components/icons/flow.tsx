@@ -1,4 +1,6 @@
-export function Flow(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const Flow: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -44,4 +46,4 @@ export function Flow(props: React.SVGAttributes<{}>) {
       </defs>
     </svg>
   );
-}
+};

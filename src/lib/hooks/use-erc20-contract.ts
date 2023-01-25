@@ -6,8 +6,12 @@ import { OneToken, ERC20TOKEN_ADDRESS } from '@/lib/constants/web3_contants';
 import { toast } from 'react-toastify';
 
 export const useERC20Contract = (provider: Web3Provider | undefined) => {
-  const [erc20Contract, setERC20Contract] = useState<Contract>(
-    new Contract(ERC20TOKEN_ADDRESS, ERC20_ABI, provider?.getSigner())
+  const [erc20Contract] = useState<Contract>(
+    new Contract(
+      ERC20TOKEN_ADDRESS,
+      ERC20_ABI,
+      provider?.getSigner()
+    )
   );
   const [tokenBalance, setTokenBalance] = useState<BN>();
 

@@ -1,4 +1,6 @@
-export function Plus(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const Plus: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="12"
@@ -22,4 +24,4 @@ export function Plus(props: React.SVGAttributes<{}>) {
       />
     </svg>
   );
-}
+};

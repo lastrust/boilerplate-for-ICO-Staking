@@ -1,24 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
-import cn from 'classnames';
 import { NextSeo } from 'next-seo';
-import { Transition } from '@/components/ui/transition';
 import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/forms/input';
-import Textarea from '@/components/ui/forms/textarea';
-import Uploader from '@/components/ui/forms/uploader';
 import InputLabel from '@/components/ui/input-label';
-import { ChevronDown } from '@/components/icons/chevron-down';
 import { Ethereum } from '@/components/icons/ethereum';
 import { Flow } from '@/components/icons/flow';
-import { Warning } from '@/components/icons/warning';
-import { Unlocked } from '@/components/icons/unlocked';
 //images
 import Image1 from '@/assets/images/bunzz/Group 13231.png';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { useERC20Contract } from '@/lib/hooks/use-erc20-contract';
 import { useStakingContract } from '@/lib/hooks/use-staking-contract';
-import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_contants';
+import { OneToken } from '@/lib/constants/web3_contants';
 import { toast } from 'react-toastify';
 import { formatUnits } from '@/lib/helpers/helper';
 
@@ -38,34 +31,18 @@ const BlockchainOptions = [
 ];
 
 export const Staking = () => {
-  const [publish, setPublish] = useState(true);
-  const [explicit, setExplicit] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
-  const [priceType, setPriceType] = useState('fixed');
-  const [blockchain, setBlockChain] = useState(BlockchainOptions[0]);
-
   const [amount, setAmount] = useState(0);
 
-  const { address, disconnectWallet, balance, getProvider } =
-    useContext(WalletContext);
+  const { address, getProvider } = useContext(WalletContext);
 
   const provider = getProvider();
 
-  const {
-    ERC20TOKEN_ADDRESS,
-    erc20Contract,
-    tokenBalance,
-    getBalance,
-    approveToken,
-  } = useERC20Contract(provider);
+  const { tokenBalance, getBalance, approveToken } = useERC20Contract(provider);
 
   const {
     STAKING_ADDRESS,
-    stakingContract,
-    totalStakedAmount,
     pendingReward,
     stakedAmount,
-    getTotalStakedAmount,
     getUserInfo,
     getPendingReward,
     stake,
@@ -78,13 +55,12 @@ export const Staking = () => {
     if (address !== '') {
       updateStatus();
     }
-    // getUserInfo(address);
   }, [address]);
 
   const updateStatus = () => {
-    getPendingReward(address);
-    getUserInfo(address);
-    getBalance(address);
+    getPendingReward(address).then();
+    getUserInfo(address).then();
+    getBalance(address).then();
   };
 
   const submitForStaking = async () => {

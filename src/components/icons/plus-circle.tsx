@@ -1,4 +1,6 @@
-export function PlusCircle(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const PlusCircle: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="18"
@@ -23,4 +25,4 @@ export function PlusCircle(props: React.SVGAttributes<{}>) {
       </defs>
     </svg>
   );
-}
+};

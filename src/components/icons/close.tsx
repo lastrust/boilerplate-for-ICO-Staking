@@ -1,4 +1,6 @@
-export function Close(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const Close: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="10"
@@ -22,4 +24,4 @@ export function Close(props: React.SVGAttributes<{}>) {
       />
     </svg>
   );
-}
+};

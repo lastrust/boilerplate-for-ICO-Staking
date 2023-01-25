@@ -1,21 +1,19 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { RootLayout } from '@/layouts/_root-layout';
 import Image from '@/components/ui/image';
 import AnchorLink from '@/components/ui/links/anchor-link';
 import routes from '@/config/routes';
 import Button from '@/components/ui/button';
-import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 import ErrorLightImage from '@/assets/images/404-light.svg';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+import MinimalLayout from '@/layouts/_minimal';
 
 const ErrorPage: NextPageWithLayout = () => {
   const router = useRouter();
   const {
     query: { layout },
   } = router;
-  const isMounted = useIsMounted();
   return (
     <>
       <NextSeo
@@ -54,11 +52,7 @@ const ErrorPage: NextPageWithLayout = () => {
 };
 
 ErrorPage.getLayout = function getLayout(page) {
-  return (
-    <RootLayout contentClassName="flex items-center justify-center">
-      {page}
-    </RootLayout>
-  );
+  return <MinimalLayout>{page}</MinimalLayout>;
 };
 
 export default ErrorPage;

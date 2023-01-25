@@ -1,5 +1,5 @@
-import { useEffect, useState, createContext, ReactNode } from 'react';
-import { ethers, Contract, BigNumber as BN } from 'ethers';
+import { useState } from 'react';
+import { Contract, BigNumber as BN } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import ABI from '../../assets/abis/staking.json';
 import { toast } from 'react-toastify';
@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_contants';
 
 export const useStakingContract = (provider: Web3Provider | undefined) => {
-  const [stakingContract, setStakingContract] = useState<Contract>(
+  const [stakingContract] = useState<Contract>(
     new Contract(STAKING_ADDRESS, ABI, provider?.getSigner())
   );
   const [totalStakedAmount, setTotalStakedAmount] = useState<BN>();

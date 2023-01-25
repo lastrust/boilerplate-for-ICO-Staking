@@ -1,75 +1,41 @@
 import { useEffect, useState } from 'react';
-import cn from 'classnames';
 import { NextSeo } from 'next-seo';
-import { Transition } from '@/components/ui/transition';
 import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/forms/input';
-import Textarea from '@/components/ui/forms/textarea';
-import Uploader from '@/components/ui/forms/uploader';
 import InputLabel from '@/components/ui/input-label';
-import { ChevronDown } from '@/components/icons/chevron-down';
 import { Ethereum } from '@/components/icons/ethereum';
 import { Flow } from '@/components/icons/flow';
-import { Warning } from '@/components/icons/warning';
-import { Unlocked } from '@/components/icons/unlocked';
-//images
-import AuthorImage from '@/assets/images/author.jpg';
 import Image1 from '@/assets/images/bunzz/1.png';
-import { useICOContract } from '../../lib/hooks/use-ico-contract';
-import { useERC20Contract } from '../../lib/hooks/use-erc20-contract';
+import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
-import { ERC20TOKEN_ADDRESS, OneToken } from '@/lib/constants/web3_contants';
+import { OneToken } from '@/lib/constants/web3_contants';
 import { BigNumber, ethers } from 'ethers';
-
-const BlockchainOptions = [
-  {
-    id: 1,
-    name: 'Ethereum',
-    value: 'ethereum',
-    icon: <Ethereum />,
-  },
-  {
-    id: 2,
-    name: 'Flow',
-    value: 'flow',
-    icon: <Flow />,
-  },
-];
-
 export const ICO = () => {
-  const [publish, setPublish] = useState(true);
-  const [explicit, setExplicit] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
-  const [priceType, setPriceType] = useState('fixed');
-  const [blockchain, setBlockChain] = useState(BlockchainOptions[0]);
-
   const [amount, setAmount] = useState(0);
   const [disableBuy, setDisableBuy] = useState(true);
   const [requiredETH, setRequiredETH] = useState<BigNumber>();
 
-  const { address, disconnectWallet, balance, getProvider } =
-    useContext(WalletContext);
+  const { getProvider } = useContext(WalletContext);
 
   const provider = getProvider();
-  const { ICO_ADDRESS, icoContract, tokenPrice, getTokenPrice, buy } =
-    useICOContract(provider);
+  const { tokenPrice, getTokenPrice, buy } = useICOContract(provider);
 
-  const {
-    ERC20TOKEN_ADDRESS,
-    erc20Contract,
-    tokenBalance,
-    getBalance,
-    approveToken,
-  } = useERC20Contract(provider);
+  // const {
+  //   ERC20TOKEN_ADDRESS,
+  //   erc20Contract,
+  //   tokenBalance,
+  //   getBalance,
+  //   approveToken,
+  // } = useERC20Contract(provider);
 
   const submit = async () => {
     await buy(amount);
   };
 
   useEffect(() => {
-    getTokenPrice();
+    getTokenPrice().then();
   });
 
   useEffect(() => {

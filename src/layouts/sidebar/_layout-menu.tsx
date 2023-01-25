@@ -2,19 +2,16 @@ import { Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { Logo } from '@/components/ui/logo';
 import Button from '@/components/ui/button';
-import { Menu } from '@/components/ui/menu';
-import { Transition } from '@/components/ui/transition';
 import ActiveLink from '@/components/ui/links/active-link';
 import { Scrollbar } from '@/components/ui/scrollbar';
 import { Close } from '@/components/icons/close';
 import { useDrawer } from '@/components/drawer-views/context';
-import { ChevronDown } from '@/components/icons/chevron-down';
 import { MenuItem } from '@/components/ui/collapsible-menu';
 import WalletConnect from '@/components/nft/wallet-connect';
 import { menuItems } from '@/layouts/sidebar/_menu-items';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 
-export function MenuItems() {
+export const MenuItems = () => {
   const router = useRouter();
   const {
     query: { layout },
@@ -43,9 +40,9 @@ export function MenuItems() {
       ))}
     </div>
   );
-}
+};
 
-export default function DrawerMenu() {
+export const DrawerMenu = () => {
   const { closeDrawer } = useDrawer();
   return (
     <div className="relative w-full max-w-full bg-white dark:bg-dark xs:w-80">
@@ -84,4 +81,6 @@ export default function DrawerMenu() {
       </div>
     </div>
   );
-}
+};
+
+export default DrawerMenu;

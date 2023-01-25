@@ -1,8 +1,5 @@
 import { Logo } from '@/components/ui/logo';
 import cn from 'classnames';
-import { FlashIcon } from '@/components/icons/flash';
-import SearchButton from '@/components/search/button';
-import ActiveLink from '@/components/ui/links/active-link';
 import { Hamburger } from '@/components/ui/hamburger';
 import WalletConnect from '@/components/nft/wallet-connect';
 import { MenuItems } from '@/layouts/sidebar/_layout-menu';

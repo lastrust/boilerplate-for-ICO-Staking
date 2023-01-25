@@ -1,4 +1,6 @@
-export function Ethereum(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const Ethereum: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="24"
@@ -34,4 +36,4 @@ export function Ethereum(props: React.SVGAttributes<{}>) {
       />
     </svg>
   );
-}
+};

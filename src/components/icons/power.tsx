@@ -1,4 +1,6 @@
-export function PowerIcon(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const PowerIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="17"
@@ -24,4 +26,4 @@ export function PowerIcon(props: React.SVGAttributes<{}>) {
       />
     </svg>
   );
-}
+};

@@ -7,8 +7,6 @@ import { Transition } from '@/components/ui/transition';
 import Button from '@/components/ui/button';
 import { Close } from '@/components/icons/close';
 import { useModal, MODAL_VIEW } from '@/components/modal-views/context';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
 // dynamic imports
 const SearchView = dynamic(() => import('@/components/search/view'));
 const SelectWallet = dynamic(() => import('@/components/nft/select-wallet'));
@@ -27,7 +25,6 @@ const renderModalContent = (view: MODAL_VIEW | string) => {
 export const ModalContainer = () => {
   const router = useRouter();
   const { view, isOpen, closeModal } = useModal();
-  const { layout } = useLayout();
 
   useEffect(() => {
     // close search modal when route change
@@ -87,7 +84,7 @@ export const ModalContainer = () => {
           <div
             className={cn(
               'relative z-50 inline-block w-full text-left align-middle',
-              layout === LAYOUT_OPTIONS.RETRO ? 'sm:w-auto' : 'xs:w-auto'
+              'xs:w-auto'
             )}
           >
             {view && renderModalContent(view)}

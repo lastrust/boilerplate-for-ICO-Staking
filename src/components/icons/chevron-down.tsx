@@ -1,4 +1,6 @@
-export function ChevronDown(props: React.SVGAttributes<{}>) {
+import { FC, SVGProps } from 'react';
+
+export const ChevronDown: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="11"
@@ -16,4 +18,4 @@ export function ChevronDown(props: React.SVGAttributes<{}>) {
       />
     </svg>
   );
-}
+};

@@ -4,7 +4,7 @@ import { WalletContext } from '@/lib/hooks/use-connect';
 import { useModal } from '@/components/modal-views/context';
 import { useContext, useEffect } from 'react';
 
-export default function SelectWallet({ ...props }) {
+export const SelectWallet = ({ ...props }) => {
   const { address, connectToWallet, error } = useContext(WalletContext);
   const { closeModal } = useModal();
   useEffect(() => {
@@ -42,4 +42,6 @@ export default function SelectWallet({ ...props }) {
       )}
     </div>
   );
-}
+};
+
+export default SelectWallet;
