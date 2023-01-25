@@ -3,7 +3,7 @@ import { Contract, BigNumber as BN } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import ICO_ABI from '../../assets/abis/ico.json';
 import { toast } from 'react-toastify';
-
+import { AbiItem } from 'web3-utils';
 import { ICO_ADDRESS } from '@/lib/constants/web3_contants';
 
 export const useICOContract = (provider: Web3Provider | undefined) => {

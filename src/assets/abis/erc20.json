@@ -1,7 +1,5 @@
 [
   {
-    "anonymous": null,
-    "name": null,
     "inputs": [
       {
         "internalType": "string",
@@ -19,7 +17,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "Approval",
     "inputs": [
       {
@@ -40,10 +38,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "Paused",
     "inputs": [
       {
@@ -54,10 +52,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "RoleAdminChanged",
     "inputs": [
       {
@@ -78,10 +76,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "RoleGranted",
     "inputs": [
       {
@@ -102,10 +100,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "RoleRevoked",
     "inputs": [
       {
@@ -126,10 +124,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "Transfer",
     "inputs": [
       {
@@ -150,10 +148,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "Unpaused",
     "inputs": [
       {
@@ -164,10 +162,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "DEFAULT_ADMIN_ROLE",
     "inputs": [],
     "outputs": [
@@ -181,7 +179,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "MINTER_ROLE",
     "inputs": [],
     "outputs": [
@@ -195,7 +193,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "PAUSER_ROLE",
     "inputs": [],
     "outputs": [
@@ -209,7 +207,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "allowance",
     "inputs": [
       {
@@ -234,7 +232,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "approve",
     "inputs": [
       {
@@ -259,7 +257,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "balanceOf",
     "inputs": [
       {
@@ -279,7 +277,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "burn",
     "inputs": [
       {
@@ -293,7 +291,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "burnFrom",
     "inputs": [
       {
@@ -312,7 +310,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "decimals",
     "inputs": [],
     "outputs": [
@@ -326,7 +324,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "decreaseAllowance",
     "inputs": [
       {
@@ -351,7 +349,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "getRoleAdmin",
     "inputs": [
       {
@@ -371,7 +369,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "getRoleMember",
     "inputs": [
       {
@@ -396,7 +394,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "getRoleMemberCount",
     "inputs": [
       {
@@ -416,7 +414,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "grantRole",
     "inputs": [
       {
@@ -435,7 +433,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "hasRole",
     "inputs": [
       {
@@ -460,7 +458,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "increaseAllowance",
     "inputs": [
       {
@@ -485,7 +483,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "mint",
     "inputs": [
       {
@@ -504,7 +502,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "name",
     "inputs": [],
     "outputs": [
@@ -518,7 +516,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "pause",
     "inputs": [],
     "outputs": [],
@@ -526,7 +524,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "paused",
     "inputs": [],
     "outputs": [
@@ -540,7 +538,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "renounceRole",
     "inputs": [
       {
@@ -559,7 +557,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "revokeRole",
     "inputs": [
       {
@@ -578,7 +576,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "supportsInterface",
     "inputs": [
       {
@@ -598,7 +596,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "symbol",
     "inputs": [],
     "outputs": [
@@ -612,7 +610,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "totalSupply",
     "inputs": [],
     "outputs": [
@@ -626,7 +624,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "transfer",
     "inputs": [
       {
@@ -651,7 +649,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "transferFrom",
     "inputs": [
       {
@@ -681,7 +679,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "unpause",
     "inputs": [],
     "outputs": [],

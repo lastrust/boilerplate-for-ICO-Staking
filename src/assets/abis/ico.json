@@ -1,14 +1,12 @@
 [
   {
-    "anonymous": null,
-    "name": null,
     "inputs": [],
     "outputs": [],
     "type": "constructor",
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "OwnershipTransferred",
     "inputs": [
       {
@@ -24,10 +22,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "PriceForOneTokenChanged",
     "inputs": [
       {
@@ -43,10 +41,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "TokenAddressSet",
     "inputs": [
       {
@@ -62,10 +60,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "TokenBought",
     "inputs": [
       {
@@ -81,10 +79,10 @@
     ],
     "outputs": [],
     "type": "event",
-    "stateMutability": null
+    "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "Token",
     "inputs": [],
     "outputs": [
@@ -98,7 +96,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "buy",
     "inputs": [],
     "outputs": [],
@@ -106,7 +104,7 @@
     "stateMutability": "payable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "claimProfits",
     "inputs": [],
     "outputs": [],
@@ -114,7 +112,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "claimTokensNotSold",
     "inputs": [],
     "outputs": [],
@@ -122,7 +120,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "connectToOtherContracts",
     "inputs": [
       {
@@ -136,7 +134,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "exchangeRate",
     "inputs": [],
     "outputs": [
@@ -150,7 +148,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "owner",
     "inputs": [],
     "outputs": [
@@ -164,7 +162,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "priceForOneToken",
     "inputs": [],
     "outputs": [
@@ -178,7 +176,7 @@
     "stateMutability": "view"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "renounceOwnership",
     "inputs": [],
     "outputs": [],
@@ -186,7 +184,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "transferOwnership",
     "inputs": [
       {
@@ -200,7 +198,7 @@
     "stateMutability": "nonpayable"
   },
   {
-    "anonymous": null,
+    "anonymous": false,
     "name": "updatePriceForOneToken",
     "inputs": [
       {

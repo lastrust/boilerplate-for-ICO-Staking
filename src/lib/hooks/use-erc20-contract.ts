@@ -7,11 +7,7 @@ import { toast } from 'react-toastify';
 
 export const useERC20Contract = (provider: Web3Provider | undefined) => {
   const [erc20Contract] = useState<Contract>(
-    new Contract(
-      ERC20TOKEN_ADDRESS,
-      ERC20_ABI,
-      provider?.getSigner()
-    )
+    new Contract(ERC20TOKEN_ADDRESS, ERC20_ABI, provider?.getSigner())
   );
   const [tokenBalance, setTokenBalance] = useState<BN>();
 
