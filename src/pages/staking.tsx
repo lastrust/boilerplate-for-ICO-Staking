@@ -1,7 +1,7 @@
 import type { NextPageWithLayout } from '@/types';
 import { NextSeo } from 'next-seo';
-import { RootLayout } from '@/layouts/_root-layout';
 import { Staking } from '@/components/staking/staking';
+import MinimalLayout from '@/layouts/_minimal';
 
 const StakingPage: NextPageWithLayout = () => {
   // render default create NFT component
@@ -14,7 +14,7 @@ const StakingPage: NextPageWithLayout = () => {
 };
 
 StakingPage.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
+  return <MinimalLayout>{page}</MinimalLayout>;
 };
 
 export default StakingPage;

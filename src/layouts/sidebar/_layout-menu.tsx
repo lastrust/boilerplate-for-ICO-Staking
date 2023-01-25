@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { Logo } from '@/components/ui/logo';
 import Button from '@/components/ui/button';
@@ -42,7 +42,7 @@ export const MenuItems = () => {
   );
 };
 
-export const DrawerMenu = () => {
+export const DrawerMenu: FC = () => {
   const { closeDrawer } = useDrawer();
   return (
     <div className="relative w-full max-w-full bg-white dark:bg-dark xs:w-80">
@@ -77,7 +77,7 @@ export const DrawerMenu = () => {
         </div>
       </Scrollbar>
       <div className="absolute right-0 bottom-4 z-10 w-full px-6">
-        <WalletConnect anchorClassName="w-full" btnClassName="!w-full !h-11" />
+        <WalletConnect btnClassName="!w-full !h-11" />
       </div>
     </div>
   );

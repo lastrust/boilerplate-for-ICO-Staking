@@ -4,8 +4,6 @@ import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/forms/input';
 import InputLabel from '@/components/ui/input-label';
-import { Ethereum } from '@/components/icons/ethereum';
-import { Flow } from '@/components/icons/flow';
 //images
 import Image1 from '@/assets/images/bunzz/Group 13231.png';
 import { WalletContext } from '@/lib/hooks/use-connect';
@@ -14,21 +12,6 @@ import { useStakingContract } from '@/lib/hooks/use-staking-contract';
 import { OneToken } from '@/lib/constants/web3_contants';
 import { toast } from 'react-toastify';
 import { formatUnits } from '@/lib/helpers/helper';
-
-const BlockchainOptions = [
-  {
-    id: 1,
-    name: 'Ethereum',
-    value: 'ethereum',
-    icon: <Ethereum />,
-  },
-  {
-    id: 2,
-    name: 'Flow',
-    value: 'flow',
-    icon: <Flow />,
-  },
-];
 
 export const Staking = () => {
   const [amount, setAmount] = useState(0);

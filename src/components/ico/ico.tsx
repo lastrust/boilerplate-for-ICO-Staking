@@ -4,8 +4,6 @@ import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/forms/input';
 import InputLabel from '@/components/ui/input-label';
-import { Ethereum } from '@/components/icons/ethereum';
-import { Flow } from '@/components/icons/flow';
 import Image1 from '@/assets/images/bunzz/1.png';
 import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
