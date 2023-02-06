@@ -34,7 +34,6 @@ export const Staking = () => {
   } = useStakingContract(provider);
 
   useEffect(() => {
-    console.log(address);
     if (address !== '') {
       updateStatus();
     }
@@ -69,7 +68,6 @@ export const Staking = () => {
   };
 
   const submitForUnstaking = async () => {
-    console.log(amount);
     if (!amount) {
       toast.error('Invalid Amount');
       return;
