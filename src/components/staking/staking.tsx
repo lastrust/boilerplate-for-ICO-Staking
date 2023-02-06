@@ -9,7 +9,7 @@ import Image1 from '@/assets/images/bunzz/Group 13231.png';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { useERC20Contract } from '@/lib/hooks/use-erc20-contract';
 import { useStakingContract } from '@/lib/hooks/use-staking-contract';
-import { OneToken } from '@/lib/constants/web3_contants';
+import { OneToken } from '@/lib/constants/web3_constants';
 import { toast } from 'react-toastify';
 import { formatUnits } from '@/lib/helpers/helper';
 
@@ -146,7 +146,7 @@ export const Staking = () => {
                   </div>
                 </div>
 
-                <div className="md-flex mt-4 mt-4 w-full flex-col rounded-lg bg-gray-100 p-6">
+                <div className="md-flex mt-4 mt-4 w-full flex-col rounded-lg p-6">
                   <div className="text-lg">
                     <Button
                       shape="rounded"
@@ -157,7 +157,7 @@ export const Staking = () => {
                     </Button>
                     <Button
                       shape="rounded"
-                      className="ml-3 bg-gray-200 text-lg font-bold text-dark"
+                      className="ml-3 bg-gray-500 text-lg font-bold"
                       onClick={submitForUnstaking}
                     >
                       Unstake BUNZ

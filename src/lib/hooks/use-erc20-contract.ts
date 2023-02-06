@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import ERC20_ABI from '../../assets/abis/erc20.json';
-import { OneToken, ERC20TOKEN_ADDRESS } from '@/lib/constants/web3_contants';
+import { OneToken, ERC20TOKEN_ADDRESS } from '@/lib/constants/web3_constants';
 import { toast } from 'react-toastify';
 
 export const useERC20Contract = (provider: Web3Provider | undefined) => {

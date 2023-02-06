@@ -8,7 +8,7 @@ import Image1 from '@/assets/images/bunzz/1.png';
 import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
-import { OneToken } from '@/lib/constants/web3_contants';
+import { OneToken } from '@/lib/constants/web3_constants';
 import { BigNumber, ethers } from 'ethers';
 export const ICO = () => {
   const [amount, setAmount] = useState(0);
@@ -90,7 +90,7 @@ export const ICO = () => {
                 </div>
                 <div className="mt-4 text-xl font-medium">
                   <span>Time open till: </span>
-                  <span>20th Jan 2023</span>
+                  <span>20th Mar 2023</span>
                 </div>
 
                 {/* Token amount */}

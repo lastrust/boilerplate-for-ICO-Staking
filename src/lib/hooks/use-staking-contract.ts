@@ -4,7 +4,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import ABI from '../../assets/abis/staking.json';
 import { toast } from 'react-toastify';
 
-import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_contants';
+import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_constants';
 
 export const useStakingContract = (provider: Web3Provider | undefined) => {
   const [stakingContract] = useState<Contract>(
