@@ -15,23 +15,39 @@ Using this boilerplate, you can create ICO & Staking website.
 
 Please deploy ICO smart contract
 
+- Click `Create Dapp` box
+
 ![img_2.png](imgs/img_2.png)
+
+- Input DApp name
 
 ![img_3.png](imgs/img_3.png)
 
+- Select the chain you want to deploy the contracts on.
+
 ![img_4.png](imgs/img_4.png)
+
+- Search and select one of ERC20 token modules
 
 If you have already an ERC20 token for ICO, you can skip this.
 
 ![img_5.png](imgs/img_5.png)
 
+- Search and select ICO module
+
 ![img_7.png](imgs/img_7.png)
 
 ![img_8.png](imgs/img_8.png)
 
+- Input token name and symbol. (If you didn't select ERC20 module, you don't need to add the token name and symbol).
+
 ![img_9.png](imgs/img_9.png)
 
+- Clicking `Deploy` button, you can deploy the smart contracts using metamask wallet.
+
 ![img_11.png](imgs/img_11.png)
+
+Now you can see the deployed contract information on DApp dashboard page.
 
 ![img_12.png](imgs/img_12.png)
 
@@ -41,11 +57,27 @@ If you are going to use an ERC20 token already deployed, you can set the token a
 
 ### [Deploy staking contract](https://app.bunzz.dev/module-templates/bc19a86b-2a94-47b6-83b2-0fc33554d6c9/how-to-use)
 
+- Click `Create Dapp` box
+
 ![img_14.png](imgs/img_14.png)
+
+- Select the chain you want to deploy the smart contracts on.
 
 ![img_15.png](imgs/img_15.png)
 
+- Search and select Staking module.
+
 ![img_16.png](imgs/img_16.png)
+
+- Input params.
+
+```
+_stkToken: ERC20 token address for staking.
+_rewardPerBlock: Amount of reward token per block.
+_feeWallet: Fee wallet address.
+__maxFeePercent: Max fee percent. Here is 1000 means 100%.
+_harvestFee: Harvest fee percent. Here is 1000 means 100% Harvest fee can't be more than maxFeePercent.
+```
 
 ![img_17.png](imgs/img_17.png)
 
