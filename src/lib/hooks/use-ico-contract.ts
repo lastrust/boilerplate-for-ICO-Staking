@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 import ICO_ABI from '../../assets/abis/ico.json';
@@ -23,7 +23,7 @@ export const useICOContract = (
   }, [address]);
 
   const getTokenPrice = async () => {
-    if (address == undefined) {
+    if (!address) {
       setTokenPrice(BN.from(0));
       return;
     }
@@ -37,7 +37,7 @@ export const useICOContract = (
   };
 
   const getTimestamp = async () => {
-    if (address == undefined) {
+    if (!address) {
       setStartTime(0);
       setEndTime(0);
       return;
@@ -68,8 +68,7 @@ export const useICOContract = (
   };
 
   const buy = async (amount: number) => {
-    if (amount == 0) return;
-    if (address == undefined) return;
+    if (amount == 0 || !address) return;
     try {
       const tx = await icoContract.buy({
         value: tokenPrice?.mul(amount * 1000000).div(1000000),

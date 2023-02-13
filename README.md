@@ -44,11 +44,17 @@ If you have already an ERC20 token for ICO, you can skip this.
 
 ![img_32.png](imgs/img_32.png)
 
+![img_35.png](imgs/img_35.png)
+
 - Clicking `Deploy` button, you can deploy the smart contracts using metamask wallet.
 
 ![img_11.png](imgs/img_11.png)
 
 Now you can see the deployed contract information on DApp dashboard page.
+
+ERC20: [0x8938F527D64243208B57F0bcc9253979af1DbcEB](https://goerli.etherscan.io/address/0x8938F527D64243208B57F0bcc9253979af1DbcEB)
+
+ICO (public sale): [0x9D9F8f467A68c7F18f190D90a657dc2E734Cd89A](https://goerli.etherscan.io/address/0x9D9F8f467A68c7F18f190D90a657dc2E734Cd89A)
 
 ![img_33.png](imgs/img_33.png)
 
@@ -81,6 +87,8 @@ _harvestFee: Harvest fee percent. Here is 1000 means 100% Harvest fee can't be m
 ```
 
 ![img_17.png](imgs/img_17.png)
+
+![img_36.png](imgs/img_36.png)
 
 Please check [this guide](https://app.bunzz.dev/module-templates/bc19a86b-2a94-47b6-83b2-0fc33554d6c9/arguments) to learn more.
 
