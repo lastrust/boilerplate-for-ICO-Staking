@@ -33,15 +33,16 @@ If you have already an ERC20 token for ICO, you can skip this.
 
 ![img_5.png](imgs/img_5.png)
 
-- Search and select ICO module
+- Search and select [ICO (Public Sale) module](https://app.bunzz.dev/module-templates/c922eb26-35b6-4c88-a667-a51ceba650f3)
 
-![img_7.png](imgs/img_7.png)
+![img_30.png](imgs/img_30.png)
 
-![img_8.png](imgs/img_8.png)
+![img_31.png](imgs/img_31.png)
 
 - Input token name and symbol. (If you didn't select ERC20 module, you don't need to add the token name and symbol).
+- Input start time and end time in timestamp type. (endTime > startTime >= currentTime)
 
-![img_9.png](imgs/img_9.png)
+![img_32.png](imgs/img_32.png)
 
 - Clicking `Deploy` button, you can deploy the smart contracts using metamask wallet.
 
@@ -49,11 +50,11 @@ If you have already an ERC20 token for ICO, you can skip this.
 
 Now you can see the deployed contract information on DApp dashboard page.
 
-![img_12.png](imgs/img_12.png)
+![img_33.png](imgs/img_33.png)
 
 If you are going to use an ERC20 token already deployed, you can set the token address of ICO contract.
 
-![img_13.png](imgs/img_13.png)
+![img_34.png](imgs/img_34.png)
 
 ### [Deploy staking contract](https://app.bunzz.dev/module-templates/bc19a86b-2a94-47b6-83b2-0fc33554d6c9/how-to-use)
 
@@ -65,7 +66,7 @@ If you are going to use an ERC20 token already deployed, you can set the token a
 
 ![img_15.png](imgs/img_15.png)
 
-- Search and select Staking module.
+- Search and select [Staking module](https://app.bunzz.dev/module-templates/bc19a86b-2a94-47b6-83b2-0fc33554d6c9).
 
 ![img_16.png](imgs/img_16.png)
 
@@ -114,7 +115,7 @@ yarn install
 Please update `src/lib/web3_constants.ts` file with the smart contract addresses you deployed.
 
 ```
-import { BigNumber } from 'ethers';
+import {BigNumber} from 'ethers';
 
 export const Decimals = BigNumber.from(18);
 export const OneToken = BigNumber.from(10).pow(Decimals);
@@ -122,6 +123,18 @@ export const OneToken = BigNumber.from(10).pow(Decimals);
 export const ERC20TOKEN_ADDRESS = '';
 export const ICO_ADDRESS = '';
 export const STAKING_ADDRESS = '';
+
+export const CHAIN_INFO = {
+  chainId: '', // chainId in hex format. It is 0x5 for goerli.
+  rpcUrls: [''], // rpc url.
+  chainName: '',
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: [''], // https://goerli.etherscan.io
+};
 ```
 
 ### Run application
