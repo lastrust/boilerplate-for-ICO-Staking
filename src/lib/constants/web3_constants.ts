@@ -1,8 +1,20 @@
-import { BigNumber } from 'ethers';
+import {BigNumber} from 'ethers';
 
 export const Decimals = BigNumber.from(18);
 export const OneToken = BigNumber.from(10).pow(Decimals);
 
-export const ERC20TOKEN_ADDRESS = '0xdB00e37aaFEE1f427fE6D524866BE1c6abf3B195';
-export const ICO_ADDRESS = '0xd1149A77cb3c8F79B5Bad55cC88B0F0079f61dE7';
-export const STAKING_ADDRESS = '0xB3CEd96a3c509DbDa6b9679728f79b0f9EB859AF';
+export const ERC20TOKEN_ADDRESS = '0x8938F527D64243208B57F0bcc9253979af1DbcEB';
+export const ICO_ADDRESS = '0x9D9F8f467A68c7F18f190D90a657dc2E734Cd89A';
+export const STAKING_ADDRESS = '0xF5C4fcFd66B854c738466AF0a6c7E9B531DF3694';
+
+export const CHAIN_INFO = {
+  chainId: '0x5',
+  rpcUrls: ['https://endpoints.omniatech.io/v1/eth/goerli/public'],
+  chainName: 'Goerli test network',
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  blockExplorerUrls: ['https://goerli.etherscan.io'],
+};

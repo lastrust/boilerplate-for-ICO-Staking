@@ -2,6 +2,7 @@ import { useEffect, useState, createContext, ReactNode } from 'react';
 import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
+import { CHAIN_INFO } from "@/lib/constants/web3_constants";
 
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 
@@ -83,16 +84,33 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const checkNetwork = async (provider: Web3Provider) => {
+    const network = await provider.getNetwork();
+    const networkId = network.chainId;
+    return '0x' + networkId == CHAIN_INFO.chainId;
+  };
+
+  const switchNetwork = async () => {
+    await window.ethereum.request({
+      method: 'wallet_addEthereumChain',
+      params: [CHAIN_INFO],
+    });
+  };
+
   const connectToWallet = async () => {
     try {
       setLoading(true);
       checkIfExtensionIsAvailable();
       const connection = web3Modal && (await web3Modal.connect());
       const provider = new ethers.providers.Web3Provider(connection);
-      await subscribeProvider(connection);
-
-      setWalletAddress(provider);
-      setLoading(false);
+      if (await checkNetwork(provider)) {
+        await subscribeProvider(connection);
+        setWalletAddress(provider);
+        setLoading(false);
+      } else {
+        await switchNetwork();
+        await connectToWallet();
+      }
     } catch (error) {
       setLoading(false);
       console.log(

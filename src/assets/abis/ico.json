@@ -1,8 +1,38 @@
 [
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint128",
+        "name": "_startTime",
+        "type": "uint128"
+      },
+      {
+        "internalType": "uint128",
+        "name": "_endTime",
+        "type": "uint128"
+      }
+    ],
     "outputs": [],
     "type": "constructor",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "Buy",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_buyer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
     "stateMutability": "nonpayable"
   },
   {
@@ -26,74 +56,41 @@
   },
   {
     "anonymous": false,
-    "name": "PriceForOneTokenChanged",
+    "name": "SetToken",
     "inputs": [
       {
         "internalType": "address",
-        "name": "setter",
+        "name": "_executor",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      }
+    ],
+    "outputs": [],
+    "type": "event",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "UpdatePrice",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_executor",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "price",
+        "name": "_price",
         "type": "uint256"
       }
     ],
     "outputs": [],
     "type": "event",
     "stateMutability": "nonpayable"
-  },
-  {
-    "anonymous": false,
-    "name": "TokenAddressSet",
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "setter",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      }
-    ],
-    "outputs": [],
-    "type": "event",
-    "stateMutability": "nonpayable"
-  },
-  {
-    "anonymous": false,
-    "name": "TokenBought",
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "buyer",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "outputs": [],
-    "type": "event",
-    "stateMutability": "nonpayable"
-  },
-  {
-    "anonymous": false,
-    "name": "Token",
-    "inputs": [],
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "type": "function",
-    "stateMutability": "view"
   },
   {
     "anonymous": false,
@@ -105,27 +102,11 @@
   },
   {
     "anonymous": false,
-    "name": "claimProfits",
-    "inputs": [],
-    "outputs": [],
-    "type": "function",
-    "stateMutability": "nonpayable"
-  },
-  {
-    "anonymous": false,
-    "name": "claimTokensNotSold",
-    "inputs": [],
-    "outputs": [],
-    "type": "function",
-    "stateMutability": "nonpayable"
-  },
-  {
-    "anonymous": false,
     "name": "connectToOtherContracts",
     "inputs": [
       {
         "internalType": "address[]",
-        "name": "_contracts",
+        "name": "addresses",
         "type": "address[]"
       }
     ],
@@ -135,13 +116,13 @@
   },
   {
     "anonymous": false,
-    "name": "exchangeRate",
+    "name": "endTime",
     "inputs": [],
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "uint128",
         "name": "",
-        "type": "uint256"
+        "type": "uint128"
       }
     ],
     "type": "function",
@@ -163,7 +144,7 @@
   },
   {
     "anonymous": false,
-    "name": "priceForOneToken",
+    "name": "price",
     "inputs": [],
     "outputs": [
       {
@@ -185,6 +166,34 @@
   },
   {
     "anonymous": false,
+    "name": "startTime",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "uint128",
+        "name": "",
+        "type": "uint128"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": false,
+    "name": "token",
+    "inputs": [],
+    "outputs": [
+      {
+        "internalType": "contract IERC20WithDecimals",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "type": "function",
+    "stateMutability": "view"
+  },
+  {
+    "anonymous": false,
     "name": "transferOwnership",
     "inputs": [
       {
@@ -199,14 +208,30 @@
   },
   {
     "anonymous": false,
-    "name": "updatePriceForOneToken",
+    "name": "updatePrice",
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "price",
+        "name": "_price",
         "type": "uint256"
       }
     ],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "withdrawETH",
+    "inputs": [],
+    "outputs": [],
+    "type": "function",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "anonymous": false,
+    "name": "withdrawToken",
+    "inputs": [],
     "outputs": [],
     "type": "function",
     "stateMutability": "nonpayable"
