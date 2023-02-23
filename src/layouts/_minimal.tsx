@@ -8,6 +8,7 @@ import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useDrawer } from '@/components/drawer-views/context';
 import { useWindowScroll } from '@/lib/hooks/use-window-scroll';
 import React, { FC } from 'react';
+import Footer from './footer';
 
 type Props = {
   children: React.ReactNode;
@@ -81,6 +82,7 @@ export const MinimalLayout: FC<Props> = ({ children }) => (
         {children}
       </main>
     </div>
+    <Footer />
   </>
 );
 

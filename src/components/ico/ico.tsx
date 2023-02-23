@@ -9,7 +9,7 @@ import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { BigNumber, ethers } from 'ethers';
-import { CHAIN_INFO } from "@/lib/constants/web3_constants";
+import { CHAIN_INFO } from '@/lib/constants/web3_constants';
 
 export const ICO = () => {
   const [amount, setAmount] = useState(0);
