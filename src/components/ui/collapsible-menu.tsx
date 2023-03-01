@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useMeasure } from '@/lib/hooks/use-measure';
 import ActiveLink from '@/components/ui/links/active-link';
-import { ChevronDown } from '@/components/icons/chevron-down';
+import { ChevronDownIcon } from '@/components/icons/chevron-down';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 
 type MenuItemProps = {
@@ -63,7 +63,7 @@ export const MenuItem = ({
                 isOpen ? 'rotate-180' : ''
               }`}
             >
-              <ChevronDown />
+              <ChevronDownIcon />
             </span>
 
             {isChildrenActive && (

@@ -2,7 +2,7 @@ import { useEffect, useState, createContext, ReactNode } from 'react';
 import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
-import { CHAIN_INFO } from "@/lib/constants/web3_constants";
+import { CHAIN_INFO } from '@/lib/constants/web3_constants';
 
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 
