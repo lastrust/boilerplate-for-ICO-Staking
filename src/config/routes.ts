@@ -4,6 +4,7 @@ const routes = {
   staking: '/staking',
   team: '/team/',
   faq: '/faq/',
+  roadmap: '/roadmap/',
 };
 
 export default routes;

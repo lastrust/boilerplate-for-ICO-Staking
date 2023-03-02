@@ -5730,6 +5730,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-media-size@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/use-media-size/-/use-media-size-1.0.5.tgz#00ee8b39bc7a4c1ab56b1e4f301872c72bc1b6e8"
+  integrity sha512-1RC/+DyQ0TJiJTBR7k6oIge2Aqxu90fGOWh9lsa6vEjB/jVegrUJgBDbVn+iQKDJeLe66kNPachxgBFwlOj5aA==
+
 use-sync-external-store@1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"

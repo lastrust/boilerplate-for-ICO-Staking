@@ -47,11 +47,13 @@ export const ICO = () => {
                 <div className="mt-4 text-5xl font-bold">
                   Token ICO now live!
                 </div>
-                <div className="mt-4 text-xl font-medium">
-                  ICO module represent the functionality that a project may need
-                  when is looking to create a classic token ICO to raise funds.
-                  The sale will be made in the ETH (native token). The user can
-                  deposit the ETH and purchase the token.
+                <div className="mt-4 font-light">
+                  <p>
+                    ICO module represent the functionality that a project may
+                    need when is looking to create a classic token ICO to raise
+                    funds. The sale will be made in the ETH (native token). The
+                    user can deposit the ETH and purchase the token.
+                  </p>
                 </div>
                 <div className="relative block w-full sm:w-2/4 md:w-3/4">
                   <Image

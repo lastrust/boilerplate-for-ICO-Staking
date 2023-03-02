@@ -12,7 +12,7 @@ const TeamPage: NextPageWithLayout = () => {
         title="Bunzz - Marketplace"
         description="Bunzz - Marketplace Sell"
       />
-      <section className="px-10 pt-7 pb-5">
+      <section className="pt-7 pb-5">
         <div className="text-center">
           <h2 className="text-5xl">Team</h2>
         </div>

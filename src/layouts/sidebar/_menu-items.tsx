@@ -13,14 +13,9 @@ export const menuItems = [
     href: routes.staking,
   },
   {
-    name: 'ABOUT',
-    icon: <PlusCircle />,
-    href: routes.faq,
-  },
-  {
     name: 'ROADMAP',
     icon: <PlusCircle />,
-    href: routes.faq,
+    href: routes.roadmap,
   },
   {
     name: 'TEAM',
