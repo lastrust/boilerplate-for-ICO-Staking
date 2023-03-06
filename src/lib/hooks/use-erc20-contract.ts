@@ -27,7 +27,7 @@ export const useERC20Contract = (provider: Web3Provider | undefined) => {
     try {
       const tx = await erc20Contract.approve(
         spenderAddress,
-        OneToken.mul(amount)
+        OneToken.mul(amount * 1000000).div(1000000)
       );
       console.log(tx);
       await tx.wait();

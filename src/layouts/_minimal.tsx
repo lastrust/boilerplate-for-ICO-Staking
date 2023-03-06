@@ -8,6 +8,7 @@ import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useDrawer } from '@/components/drawer-views/context';
 import { useWindowScroll } from '@/lib/hooks/use-window-scroll';
 import React, { FC } from 'react';
+import Footer from './footer';
 
 type Props = {
   children: React.ReactNode;
@@ -76,11 +77,12 @@ export const Header = () => {
 export const MinimalLayout: FC<Props> = ({ children }) => (
   <>
     <Header />
-    <div className="bg-light-100 dark:bg-dark-100 mt-8 flex min-h-screen flex-col gap-6 px-4 sm:px-6 lg:px-8 3xl:px-10">
+    <div className="bg-light-100 dark:bg-dark-100 mt-8 flex min-h-[66vh] flex-col gap-6 px-4 sm:px-6 lg:px-8 3xl:px-10">
       <main className="mx-auto mb-12 flex w-full max-w-[1120px] flex-grow flex-col">
         {children}
       </main>
     </div>
+    <Footer />
   </>
 );
 

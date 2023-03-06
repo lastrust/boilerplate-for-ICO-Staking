@@ -1,4 +1,4 @@
-import {BigNumber} from 'ethers';
+import { BigNumber } from 'ethers';
 
 export const Decimals = BigNumber.from(18);
 export const OneToken = BigNumber.from(10).pow(Decimals);

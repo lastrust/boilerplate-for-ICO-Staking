@@ -3,9 +3,15 @@
 This boilerplate is for ICO & Staking application.
 Using this boilerplate, you can create ICO & Staking website.
 
-![image](imgs/img.png)
+![img_40.png](imgs/img_40.png)
 
-![image](imgs/img_19.png)
+![img_41.png](imgs/img_41.png)
+
+![img_42.png](imgs/img_42.png)
+
+![img_43.png](imgs/img_43.png)
+
+![img_44.png](imgs/img_44.png)
 
 # How to create this application?
 
@@ -148,7 +154,7 @@ export const CHAIN_INFO = {
 ### Run application
 
 Development mode
-
+    
 ```
 yarn dev
 ```
@@ -160,7 +166,7 @@ yarn build
 yarn start
 ```
 
-![img20.png](imgs/img20.png)
+![img_40.png](imgs/img_40.png)
 
 Now you can use this application.
 

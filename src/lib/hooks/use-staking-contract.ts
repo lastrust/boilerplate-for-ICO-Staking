@@ -41,7 +41,9 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
 
   const stake = async (amount: number) => {
     try {
-      const tx = await stakingContract.stake(OneToken.mul(amount));
+      const tx = await stakingContract.stake(
+        OneToken.mul(amount * 1000000).div(1000000)
+      );
       console.log(tx);
       const result = await tx.wait();
       console.log(result);
@@ -55,7 +57,9 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   const unStake = async (amount: number) => {
     if (amount == 0) return;
     try {
-      const tx = await stakingContract.unStake(OneToken.mul(amount));
+      const tx = await stakingContract.unStake(
+        OneToken.mul(amount * 1000000).div(1000000)
+      );
       console.log(tx);
       const result = await tx.wait();
       console.log(result);

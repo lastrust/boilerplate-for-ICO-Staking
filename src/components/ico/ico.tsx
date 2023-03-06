@@ -9,7 +9,7 @@ import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { BigNumber, ethers } from 'ethers';
-import { CHAIN_INFO } from "@/lib/constants/web3_constants";
+import { CHAIN_INFO } from '@/lib/constants/web3_constants';
 
 export const ICO = () => {
   const [amount, setAmount] = useState(0);
@@ -47,11 +47,13 @@ export const ICO = () => {
                 <div className="mt-4 text-5xl font-bold">
                   Token ICO now live!
                 </div>
-                <div className="mt-4 text-xl font-medium">
-                  ICO module represent the functionality that a project may need
-                  when is looking to create a classic token ICO to raise funds.
-                  The sale will be made in the ETH (native token). The user can
-                  deposit the ETH and purchase the token.
+                <div className="mt-4 font-light">
+                  <p>
+                    ICO module represent the functionality that a project may
+                    need when is looking to create a classic token ICO to raise
+                    funds. The sale will be made in the ETH (native token). The
+                    user can deposit the ETH and purchase the token.
+                  </p>
                 </div>
                 <div className="relative block w-full sm:w-2/4 md:w-3/4">
                   <Image

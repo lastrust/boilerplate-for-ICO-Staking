@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Manrope', serif;
+}
+
 @layer base {
   :root {
     --color-brand: 17 24 39;
@@ -16,7 +20,7 @@
   html,
   body {
     @apply font-body antialiased;
-    font-family: 'Manrope';
+    font-family: 'Manrope', serif;
     font-style: normal;
   }
   .dynamic-html h6 {

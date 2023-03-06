@@ -50,7 +50,7 @@ export const Staking = () => {
       toast.error('Invalid Amount');
       return;
     }
-    const bigAmount = OneToken.mul(amount);
+    const bigAmount = OneToken.mul(amount * 1000000).div(1000000);
     await getBalance(address);
     if (tokenBalance !== undefined && tokenBalance < bigAmount) {
       toast.error('Token balance not enough');
