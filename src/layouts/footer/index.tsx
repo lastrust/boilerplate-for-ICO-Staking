@@ -4,6 +4,7 @@ import TofuNftIcon from '@/components/icons/tofu-nft';
 import TwitterIcon from '@/components/icons/twitter';
 import Button from '@/components/ui/button/button';
 import FooterData from './data.json';
+import ActiveLink from '@/components/ui/links/active-link';
 
 const Footer = () => {
   const renderSocials = () => (
@@ -14,12 +15,16 @@ const Footer = () => {
       <Button color="white" shape="circle">
         <TofuNftIcon className="h-[17px] w-[17px] text-slate-700" />
       </Button>
-      <Button color="white" shape="circle">
-        <TwitterIcon className="h-[17px] w-[17px] text-slate-700" />
-      </Button>
-      <Button color="white" shape="circle">
-        <DiscordIcon className="h-[17px] w-[17px] text-slate-700" />
-      </Button>
+      <ActiveLink href="https://twitter.com/BunzzDev" target="_blank">
+        <Button color="white" shape="circle">
+          <TwitterIcon className="h-[17px] w-[17px] text-slate-700" />
+        </Button>
+      </ActiveLink>
+      <ActiveLink href="https://discord.com/invite/rjfvZzDEaN" target="_blank">
+        <Button color="white" shape="circle">
+          <DiscordIcon className="h-[17px] w-[17px] text-slate-700" />
+        </Button>
+      </ActiveLink>
     </div>
   );
   return (
