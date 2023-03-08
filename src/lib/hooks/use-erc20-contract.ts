@@ -3,10 +3,11 @@ import { Contract, BigNumber as BN } from 'ethers';
 import { OneToken, ERC20TOKEN_ADDRESS } from '@/lib/constants/web3_constants';
 import { toast } from 'react-toastify';
 
-export const useERC20Contract = (erc20Contract: Contract) => {
+export const useERC20Contract = (erc20Contract: Contract | undefined) => {
   const [tokenBalance, setTokenBalance] = useState<BN>();
 
   const getBalance = async (address: string) => {
+    if (!erc20Contract) return;
     try {
       const balance = await erc20Contract.balanceOf(address);
       setTokenBalance(balance);
@@ -19,6 +20,7 @@ export const useERC20Contract = (erc20Contract: Contract) => {
   };
 
   const approveToken = async (spenderAddress: string, amount: number) => {
+    if (!erc20Contract) return;
     try {
       const tx = await erc20Contract.approve(
         spenderAddress,

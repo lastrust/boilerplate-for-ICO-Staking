@@ -12,12 +12,12 @@ import { useStakingContract } from '@/lib/hooks/use-staking-contract';
 import { OneToken } from '@/lib/constants/web3_constants';
 import { toast } from 'react-toastify';
 import { formatUnits } from '@/lib/helpers/helper';
+import { useModal } from '@/components/modal-views/context';
 
 export const Staking = () => {
   const [amount, setAmount] = useState(0);
   const [isStake, setIsStake] = useState<boolean>(true);
-  const { address, connectToWallet, ERC20Contract, StakingContract } =
-    useContext(WalletContext);
+  const { address, ERC20Contract, StakingContract } = useContext(WalletContext);
   const { tokenBalance, getBalance, approveToken } =
     useERC20Contract(ERC20Contract);
   const {
@@ -31,6 +31,8 @@ export const Staking = () => {
     unStake,
     harvest,
   } = useStakingContract(StakingContract);
+
+  const { openModal } = useModal();
 
   useEffect(() => {
     if (address !== '') {
@@ -188,8 +190,8 @@ export const Staking = () => {
                     </div>
                   </div>
                   <div className="md-flex mt-4 flex w-full justify-center rounded-lg">
-                    {isStake ? (
-                      address ? (
+                    {address ? (
+                      isStake ? (
                         <Button
                           shape="rounded"
                           className="bg-gray-700 text-lg font-bold"
@@ -198,31 +200,31 @@ export const Staking = () => {
                           Stake
                         </Button>
                       ) : (
-                        <Button
-                          shape="rounded"
-                          className="bg-gray-700 text-lg font-bold"
-                          onClick={connectToWallet}
-                        >
-                          Connect
-                        </Button>
+                        <>
+                          <Button
+                            shape="rounded"
+                            className="unstake mr-2"
+                            onClick={submitForUnstaking}
+                          >
+                            Unstake
+                          </Button>
+                          <Button
+                            shape="rounded"
+                            className="ml-2 bg-gray-700 text-lg font-bold"
+                            onClick={submitForHarvesting}
+                          >
+                            Claim rewards
+                          </Button>
+                        </>
                       )
                     ) : (
-                      <>
-                        <Button
-                          shape="rounded"
-                          className="unstake mr-2"
-                          onClick={submitForUnstaking}
-                        >
-                          Unstake
-                        </Button>
-                        <Button
-                          shape="rounded"
-                          className="ml-2 bg-gray-700 text-lg font-bold"
-                          onClick={submitForHarvesting}
-                        >
-                          Claim rewards
-                        </Button>
-                      </>
+                      <Button
+                        shape="rounded"
+                        className="bg-gray-700 text-lg font-bold"
+                        onClick={() => openModal('WALLET_CONNECT_VIEW')}
+                      >
+                        Connect
+                      </Button>
                     )}
                   </div>
                 </div>
