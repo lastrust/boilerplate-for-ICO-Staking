@@ -4,7 +4,7 @@ import Image from '@/components/ui/image';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/forms/input';
 import InputLabel from '@/components/ui/input-label';
-import Image1 from '@/assets/images/bunzz/1.png';
+import Image1 from '@/assets/images/bunzz/1.svg';
 import { useICOContract } from '@/lib/hooks/use-ico-contract';
 import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
@@ -16,7 +16,7 @@ export const ICO = () => {
   const [disableBuy, setDisableBuy] = useState(true);
   const [requiredETH, setRequiredETH] = useState<BigNumber>();
 
-  const { getProvider, address } = useContext(WalletContext);
+  const { getProvider, address, connectToWallet } = useContext(WalletContext);
   const provider = getProvider();
   const { tokenPrice, getEndTime, buy } = useICOContract(provider, address);
 
@@ -39,12 +39,12 @@ export const ICO = () => {
   return (
     <>
       <NextSeo title="ICO" description="Bunzz - ICO Boilerplate" />
-      <div className="mx-auto w-full sm:pt-0 2xl:px-0">
+      <div className="ico mx-auto w-full text-[18px] sm:pt-0 2xl:px-0">
         <div className="mb-8 grid grid-cols-1 md:grid-cols-2">
           <div className="flex-col lg:flex">
             <div className="relative flex flex-grow flex-col items-center overflow-hidden rounded-lg transition-all duration-200 dark:bg-light-dark">
-              <div className="pt-5 pr-5">
-                <div className="mt-4 text-5xl font-bold">
+              <div className="pt-5 sm:pr-5 md:pr-13">
+                <div className="mt-4 text-[48px] font-bold tracking-wider">
                   Token ICO now live!
                 </div>
                 <div className="mt-4 font-light">
@@ -55,10 +55,9 @@ export const ICO = () => {
                     user can deposit the ETH and purchase the token.
                   </p>
                 </div>
-                <div className="relative block w-full sm:w-2/4 md:w-3/4">
+                <div className="relative mt-6 block w-full sm:w-2/4 md:w-3/4">
                   <Image
                     src={Image1}
-                    placeholder="blur"
                     layout="responsive"
                     objectFit="cover"
                     alt="Pulses of Imagination #214"
@@ -71,15 +70,15 @@ export const ICO = () => {
           <div className="flex-col lg:flex">
             <div className="relative flex flex-col overflow-hidden rounded-lg bg-white shadow-card duration-200 hover:shadow-large dark:bg-light-dark">
               <div className="p-5">
-                <div className="mt-4 text-4xl font-bold">Buy</div>
-                <div className="mt-4 text-xl font-medium">
-                  <span>Price per token: </span>
+                <div className="mt-4 text-[32px] font-bold">Buy</div>
+                <div className="mt-4 text-[18px] font-medium">
+                  <span className="">Price per token: </span>
                   <span>
                     {tokenPrice ? ethers.utils.formatUnits(tokenPrice, 18) : ''}{' '}
                     {CHAIN_INFO.nativeCurrency.symbol}
                   </span>
                 </div>
-                <div className="mt-4 text-xl font-medium">
+                <div className="mt-4 text-[18px]">
                   <span>Time open till: </span>
                   <span>{getEndTime()}</span>
                 </div>
@@ -97,7 +96,7 @@ export const ICO = () => {
                   />
                 </div>
                 {/* Total ETH amount */}
-                <div className="mt-4 text-xl font-medium">
+                <div className="mt-4 font-medium">
                   <span>Total ETH required: </span>
                   <span>
                     {requiredETH
@@ -107,13 +106,19 @@ export const ICO = () => {
                   </span>
                 </div>
                 <div className="mt-4 text-lg">
-                  <Button
-                    shape="rounded"
-                    disabled={disableBuy}
-                    onClick={submit}
-                  >
-                    Buy
-                  </Button>
+                  {address ? (
+                    <Button
+                      shape="rounded"
+                      disabled={disableBuy}
+                      onClick={submit}
+                    >
+                      Buy
+                    </Button>
+                  ) : (
+                    <Button shape="rounded" onClick={connectToWallet}>
+                      Connect
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

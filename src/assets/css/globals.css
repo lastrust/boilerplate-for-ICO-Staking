@@ -130,8 +130,48 @@ Styles for Swiper slider
 }
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--color-brand));
-  border-radius: 0px;
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--color-brand));
 }
+
+.tab button.active {
+  background: #182F43;
+  border-radius: 8px;
+  color: white;
+}
+
+.tab button.inactive {
+  background: rgba(24, 47, 67, 0.1);
+  border-radius: 8px;
+  color: #182F43;
+}
+.tab button:hover {
+  transform: none !important;
+}
+
+.tab button:focus {
+  transform: none !important;
+}
+
+button.brand {
+  background: #182F43;
+  border-radius: 8px !important;
+}
+
+.staking button, .ico button {
+  border-radius: 8px !important;
+}
+
+.bg-brand {
+  background: #182F43;
+}
+
+.unstake {
+  background: #F6F7F9;
+  border: solid 2px #182F43;
+  font-size: medium;
+  color: #182F43;
+}
+
