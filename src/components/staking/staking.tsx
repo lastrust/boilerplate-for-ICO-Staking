@@ -24,6 +24,7 @@ export const Staking = () => {
     STAKING_ADDRESS,
     pendingReward,
     stakedAmount,
+    apr,
     getUserInfo,
     getPendingReward,
     stake,
@@ -124,11 +125,17 @@ export const Staking = () => {
               <div className="mx-4 flex-grow md:col-span-2">
                 <div className="md-flex grid w-full flex-col rounded-lg bg-gray-100 p-8 md:grid-cols-3">
                   <div className="mx-auto flex items-center">
-                    <div className="text-[24px] font-bold">
-                      Connect Wallet
-                      <br />
-                      to see APY
-                    </div>
+                    {address ? (
+                      <div className="text-[24px] font-bold">
+                        {apr.toString()} %
+                      </div>
+                    ) : (
+                      <div className="text-[24px] font-bold">
+                        Connect Wallet
+                        <br />
+                        to see APY
+                      </div>
+                    )}
                   </div>
                   <div className="ml-4 md:col-span-2">
                     <div className="text-[16px] font-bold">

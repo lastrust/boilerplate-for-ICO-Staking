@@ -7,6 +7,8 @@ export const ERC20TOKEN_ADDRESS = '0x8938F527D64243208B57F0bcc9253979af1DbcEB';
 export const ICO_ADDRESS = '0x9D9F8f467A68c7F18f190D90a657dc2E734Cd89A';
 export const STAKING_ADDRESS = '0xF5C4fcFd66B854c738466AF0a6c7E9B531DF3694';
 
+export const BLOCKS_PER_YEAR = 2597340;
+
 export const CHAIN_INFO = {
   chainId: '0x5',
   rpcUrls: ['https://endpoints.omniatech.io/v1/eth/goerli/public'],
