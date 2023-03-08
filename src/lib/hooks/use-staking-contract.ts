@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
-import { Web3Provider } from '@ethersproject/providers';
-import ABI from '../../assets/abis/staking.json';
 import { toast } from 'react-toastify';
 
 import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_constants';
 
-export const useStakingContract = (provider: Web3Provider | undefined) => {
-  const [stakingContract] = useState<Contract>(
-    new Contract(STAKING_ADDRESS, ABI, provider?.getSigner())
-  );
+export const useStakingContract = (stakingContract: Contract) => {
   const [totalStakedAmount, setTotalStakedAmount] = useState<BN>();
   const [pendingReward, setPendingReward] = useState<BN>();
   const [stakedAmount, setStakedAmount] = useState<BN>();

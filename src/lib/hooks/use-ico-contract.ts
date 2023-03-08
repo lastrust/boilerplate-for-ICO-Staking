@@ -1,18 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
-import { Web3Provider } from '@ethersproject/providers';
-import ICO_ABI from '../../assets/abis/ico.json';
 import { toast } from 'react-toastify';
 import { ICO_ADDRESS } from '@/lib/constants/web3_constants';
 
-export const useICOContract = (
-  provider: Web3Provider | undefined,
-  address: string
-) => {
-  const [icoContract] = useState<Contract>(
-    new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner())
-  );
-
+export const useICOContract = (icoContract: Contract, address: string) => {
   const [tokenPrice, setTokenPrice] = useState<BN>();
   const [startTime, setStartTime] = useState<number>(0);
   const [endTime, setEndTime] = useState<number>(0);

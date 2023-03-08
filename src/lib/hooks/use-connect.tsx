@@ -1,8 +1,16 @@
 import { useEffect, useState, createContext, ReactNode } from 'react';
 import Web3Modal from 'web3modal';
-import { ethers } from 'ethers';
+import { Contract, ethers } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
-import { CHAIN_INFO } from '@/lib/constants/web3_constants';
+import {
+  CHAIN_INFO,
+  ERC20TOKEN_ADDRESS,
+  ICO_ADDRESS,
+  STAKING_ADDRESS,
+} from '@/lib/constants/web3_constants';
+import ERC20_ABI from '@/assets/abis/erc20.json';
+import ICO_ABI from '@/assets/abis/ico.json';
+import STAKING_ABI from '../../assets/abis/staking.json';
 
 const web3modalStorageKey = 'WEB3_CONNECT_CACHED_PROVIDER';
 
@@ -13,6 +21,17 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
   const [balance, setBalance] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+
+  const [ERC20Contract, setERC20Contract] = useState<Contract | undefined>(
+    undefined
+  );
+  const [ICOContract, setICOContract] = useState<Contract | undefined>(
+    undefined
+  );
+  const [StakingContract, setStakingContract] = useState<Contract | undefined>(
+    undefined
+  );
+
   const web3Modal =
     typeof window !== 'undefined' && new Web3Modal({ cacheProvider: true });
 
@@ -106,6 +125,7 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
       if (await checkNetwork(provider)) {
         await subscribeProvider(connection);
         setWalletAddress(provider);
+        setContracts(provider);
         setLoading(false);
       } else {
         await switchNetwork();
@@ -118,6 +138,16 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
         'got this error on connectToWallet catch block while connecting the wallet'
       );
     }
+  };
+
+  const setContracts = (provider: Web3Provider) => {
+    setERC20Contract(
+      new Contract(ERC20TOKEN_ADDRESS, ERC20_ABI, provider?.getSigner())
+    );
+    setICOContract(new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner()));
+    setStakingContract(
+      new Contract(STAKING_ADDRESS, STAKING_ABI, provider?.getSigner())
+    );
   };
 
   const subscribeProvider = async (connection: any) => {
@@ -142,6 +172,9 @@ export const WalletProvider = ({ children }: { children: ReactNode }) => {
         balance,
         loading,
         error,
+        ERC20Contract,
+        ICOContract,
+        StakingContract,
         connectToWallet,
         disconnectWallet,
         getProvider,

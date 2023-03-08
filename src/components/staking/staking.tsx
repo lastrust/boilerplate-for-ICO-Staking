@@ -16,9 +16,10 @@ import { formatUnits } from '@/lib/helpers/helper';
 export const Staking = () => {
   const [amount, setAmount] = useState(0);
   const [isStake, setIsStake] = useState<boolean>(true);
-  const { address, getProvider, connectToWallet } = useContext(WalletContext);
-  const provider = getProvider();
-  const { tokenBalance, getBalance, approveToken } = useERC20Contract(provider);
+  const { address, connectToWallet, ERC20Contract, StakingContract } =
+    useContext(WalletContext);
+  const { tokenBalance, getBalance, approveToken } =
+    useERC20Contract(ERC20Contract);
   const {
     STAKING_ADDRESS,
     pendingReward,
@@ -28,7 +29,7 @@ export const Staking = () => {
     stake,
     unStake,
     harvest,
-  } = useStakingContract(provider);
+  } = useStakingContract(StakingContract);
 
   useEffect(() => {
     if (address !== '') {
@@ -77,13 +78,6 @@ export const Staking = () => {
     }
     await unStake(amount);
     updateStatus();
-  };
-
-  const setStake = () => {
-    setIsStake(true);
-  };
-  const setUnStake = () => {
-    setIsStake(false);
   };
 
   return (
@@ -156,7 +150,9 @@ export const Staking = () => {
                         className={`mr-[-7px] ${
                           isStake ? 'active' : 'inactive'
                         }`}
-                        onClick={setStake}
+                        onClick={() => {
+                          setIsStake(true);
+                        }}
                       >
                         Stake BUNZ
                       </Button>
@@ -165,7 +161,9 @@ export const Staking = () => {
                         className={`ml-[-7px] ${
                           isStake ? 'inactive' : 'active'
                         }`}
-                        onClick={setUnStake}
+                        onClick={() => {
+                          setIsStake(false);
+                        }}
                       >
                         Unstake/Claim
                       </Button>

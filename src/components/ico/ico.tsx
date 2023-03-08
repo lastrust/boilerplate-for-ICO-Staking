@@ -10,15 +10,15 @@ import { useContext } from 'react';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { BigNumber, ethers } from 'ethers';
 import { CHAIN_INFO } from '@/lib/constants/web3_constants';
+import { useModal } from '@/components/modal-views/context';
 
 export const ICO = () => {
   const [amount, setAmount] = useState(0);
   const [disableBuy, setDisableBuy] = useState(true);
   const [requiredETH, setRequiredETH] = useState<BigNumber>();
-
-  const { getProvider, address, connectToWallet } = useContext(WalletContext);
-  const provider = getProvider();
-  const { tokenPrice, getEndTime, buy } = useICOContract(provider, address);
+  const { openModal } = useModal();
+  const { address, ICOContract } = useContext(WalletContext);
+  const { tokenPrice, getEndTime, buy } = useICOContract(ICOContract, address);
 
   const submit = async () => {
     await buy(amount);
@@ -115,7 +115,10 @@ export const ICO = () => {
                       Buy
                     </Button>
                   ) : (
-                    <Button shape="rounded" onClick={connectToWallet}>
+                    <Button
+                      shape="rounded"
+                      onClick={() => openModal('WALLET_CONNECT_VIEW')}
+                    >
                       Connect
                     </Button>
                   )}
