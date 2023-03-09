@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import Button from '@/components/ui/button';
 import { WalletContext } from '@/lib/hooks/use-connect';
 import { Menu } from '@/components/ui/menu';
@@ -13,10 +12,10 @@ export const WalletConnect = ({ btnClassName }: { btnClassName?: string }) => {
   return (
     <>
       {address ? (
-        <div className="flex items-center gap-3 sm:gap-6 lg:gap-8">
+        <div className="wallet-menu flex items-center gap-3 sm:gap-6 lg:gap-8">
           <div className="relative flex-shrink-0">
             <Menu>
-              <Menu.Button className="border-gray w-35 block h-12 overflow-hidden rounded-full border-2 border-solid px-2 shadow-main transition-all hover:-translate-y-0.5 hover:shadow-large dark:border-gray-700">
+              <Menu.Button className="border-gray w-35 block h-12 overflow-hidden rounded-lg border-2 border-solid px-2 shadow-main transition-all hover:-translate-y-0.5 hover:shadow-large dark:border-gray-700">
                 {address.slice(0, 6)}
                 {'...'}
                 {address.slice(address.length - 6)}
@@ -37,7 +36,7 @@ export const WalletConnect = ({ btnClassName }: { btnClassName?: string }) => {
                           <span className="text-sm font-medium -tracking-tighter text-gray-600 dark:text-gray-400">
                             Address
                           </span>
-                          <span className="rounded-lg bg-gray-100 px-2 py-1 text-sm tracking-tighter dark:bg-gray-800">
+                          <span className="rounded bg-gray-100 px-2 py-1 text-sm tracking-tighter dark:bg-gray-800">
                             {address.slice(0, 6)}
                             {'...'}
                             {address.slice(address.length - 6)}
@@ -68,7 +67,7 @@ export const WalletConnect = ({ btnClassName }: { btnClassName?: string }) => {
       ) : (
         <Button
           onClick={() => openModal('WALLET_CONNECT_VIEW')}
-          className={cn('shadow-main hover:shadow-large', btnClassName)}
+          shape="rounded"
         >
           CONNECT
         </Button>

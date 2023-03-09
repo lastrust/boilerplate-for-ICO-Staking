@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
-import { Web3Provider } from '@ethersproject/providers';
-import ERC20_ABI from '../../assets/abis/erc20.json';
 import { OneToken, ERC20TOKEN_ADDRESS } from '@/lib/constants/web3_constants';
 import { toast } from 'react-toastify';
 
-export const useERC20Contract = (provider: Web3Provider | undefined) => {
-  const [erc20Contract] = useState<Contract>(
-    new Contract(ERC20TOKEN_ADDRESS, ERC20_ABI, provider?.getSigner())
-  );
+export const useERC20Contract = (erc20Contract: Contract | undefined) => {
   const [tokenBalance, setTokenBalance] = useState<BN>();
 
   const getBalance = async (address: string) => {
+    if (!erc20Contract) return;
     try {
       const balance = await erc20Contract.balanceOf(address);
       setTokenBalance(balance);
@@ -24,6 +20,7 @@ export const useERC20Contract = (provider: Web3Provider | undefined) => {
   };
 
   const approveToken = async (spenderAddress: string, amount: number) => {
+    if (!erc20Contract) return;
     try {
       const tx = await erc20Contract.approve(
         spenderAddress,

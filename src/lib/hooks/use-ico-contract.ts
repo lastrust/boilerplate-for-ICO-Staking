@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
-import { Web3Provider } from '@ethersproject/providers';
-import ICO_ABI from '../../assets/abis/ico.json';
+
 import { toast } from 'react-toastify';
 import { ICO_ADDRESS } from '@/lib/constants/web3_constants';
 
 export const useICOContract = (
-  provider: Web3Provider | undefined,
+  icoContract: Contract | undefined,
   address: string
 ) => {
-  const [icoContract] = useState<Contract>(
-    new Contract(ICO_ADDRESS, ICO_ABI, provider?.getSigner())
-  );
-
   const [tokenPrice, setTokenPrice] = useState<BN>();
   const [startTime, setStartTime] = useState<number>(0);
   const [endTime, setEndTime] = useState<number>(0);
@@ -23,7 +18,7 @@ export const useICOContract = (
   }, [address]);
 
   const getTokenPrice = async () => {
-    if (!address) {
+    if (!address || !icoContract) {
       setTokenPrice(BN.from(0));
       return;
     }
@@ -37,7 +32,7 @@ export const useICOContract = (
   };
 
   const getTimestamp = async () => {
-    if (!address) {
+    if (!address || !icoContract) {
       setStartTime(0);
       setEndTime(0);
       return;
@@ -68,7 +63,7 @@ export const useICOContract = (
   };
 
   const buy = async (amount: number) => {
-    if (amount == 0 || !address) return;
+    if (amount == 0 || !address || !icoContract) return;
     try {
       const tx = await icoContract.buy({
         value: tokenPrice?.mul(amount * 1000000).div(1000000),

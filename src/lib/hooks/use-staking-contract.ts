@@ -1,25 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Contract, BigNumber as BN } from 'ethers';
-import { Web3Provider } from '@ethersproject/providers';
-import ABI from '../../assets/abis/staking.json';
 import { toast } from 'react-toastify';
 
-import { OneToken, STAKING_ADDRESS } from '@/lib/constants/web3_constants';
+import {
+  BLOCKS_PER_YEAR,
+  OneToken,
+  STAKING_ADDRESS,
+} from '@/lib/constants/web3_constants';
 
-export const useStakingContract = (provider: Web3Provider | undefined) => {
-  const [stakingContract] = useState<Contract>(
-    new Contract(STAKING_ADDRESS, ABI, provider?.getSigner())
-  );
-  const [totalStakedAmount, setTotalStakedAmount] = useState<BN>();
-  const [pendingReward, setPendingReward] = useState<BN>();
-  const [stakedAmount, setStakedAmount] = useState<BN>();
+export const useStakingContract = (stakingContract: Contract | undefined) => {
+  const [pendingReward, setPendingReward] = useState<BN>(BN.from(0));
+  const [stakedAmount, setStakedAmount] = useState<BN>(BN.from(0));
+  const [apr, setAPR] = useState<BN>(BN.from(0));
 
-  const getTotalStakedAmount = async () => {
-    const amount = await stakingContract.totalStakedAmount();
-    setTotalStakedAmount(amount);
+  useEffect(() => {
+    initInfo().then();
+  });
+
+  const initInfo = async () => {
+    if (!stakingContract) return;
+    const _totalStakedAmount = await stakingContract.totalStakedAmount();
+    const _rewardPerBlock = await stakingContract.rewardPerBlock();
+    const totalRewardPerYear = _rewardPerBlock.mul(BLOCKS_PER_YEAR);
+    const _apr = totalRewardPerYear.div(_totalStakedAmount).mul(100).toString();
+    setAPR(_apr);
   };
 
   const getUserInfo = async (address: string) => {
+    if (!stakingContract) return;
     try {
       const userInfo = await stakingContract.userInfo(address);
       setStakedAmount(userInfo[0]);
@@ -30,6 +38,7 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   };
 
   const getPendingReward = async (address: string) => {
+    if (!stakingContract) return;
     try {
       const amount = await stakingContract.getPending(address);
       setPendingReward(amount);
@@ -40,6 +49,7 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   };
 
   const stake = async (amount: number) => {
+    if (!stakingContract) return;
     try {
       const tx = await stakingContract.stake(
         OneToken.mul(amount * 1000000).div(1000000)
@@ -55,7 +65,7 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   };
 
   const unStake = async (amount: number) => {
-    if (amount == 0) return;
+    if (amount == 0 || !stakingContract) return;
     try {
       const tx = await stakingContract.unStake(
         OneToken.mul(amount * 1000000).div(1000000)
@@ -71,6 +81,7 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   };
 
   const harvest = async (reStake = false) => {
+    if (!stakingContract) return;
     try {
       const tx = await stakingContract.harvest(reStake);
       console.log(tx);
@@ -86,10 +97,9 @@ export const useStakingContract = (provider: Web3Provider | undefined) => {
   return {
     STAKING_ADDRESS,
     stakingContract,
-    totalStakedAmount,
     pendingReward,
     stakedAmount,
-    getTotalStakedAmount,
+    apr,
     getUserInfo,
     getPendingReward,
     stake,

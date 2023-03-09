@@ -4,8 +4,10 @@ export const Decimals = BigNumber.from(18);
 export const OneToken = BigNumber.from(10).pow(Decimals);
 
 export const ERC20TOKEN_ADDRESS = '0x8938F527D64243208B57F0bcc9253979af1DbcEB';
-export const ICO_ADDRESS = '0x9D9F8f467A68c7F18f190D90a657dc2E734Cd89A';
+export const ICO_ADDRESS = '0x489cBB3dB6Daa7F3521ab8539e91389E28994474';
 export const STAKING_ADDRESS = '0xF5C4fcFd66B854c738466AF0a6c7E9B531DF3694';
+
+export const BLOCKS_PER_YEAR = 2597340;
 
 export const CHAIN_INFO = {
   chainId: '0x5',
