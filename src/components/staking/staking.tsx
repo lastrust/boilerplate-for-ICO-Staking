@@ -31,6 +31,9 @@ export const Staking = () => {
     unStake,
     harvest,
   } = useStakingContract(StakingContract);
+  const [tokenBalanceStr, setTokenBalanceStr] = useState<string>('');
+  const [stakedBalanceStr, setStakedBalanceStr] = useState<string>('');
+  const [rewardBalanceStr, setRewardBalanceStr] = useState<string>('');
 
   const { openModal } = useModal();
 
@@ -45,6 +48,16 @@ export const Staking = () => {
     getUserInfo(address).then();
     getBalance(address).then();
   };
+
+  useEffect(() => {
+    setTokenBalanceStr(tokenBalance ? formatUnits(tokenBalance, 18, 3) : '');
+    setStakedBalanceStr(stakedAmount ? formatUnits(stakedAmount, 18, 3) : '');
+    setRewardBalanceStr(pendingReward ? formatUnits(pendingReward, 18, 3) : '');
+  }, [tokenBalance, stakedAmount, pendingReward]);
+
+  useEffect(() => {
+    setAmount(0);
+  }, [isStake]);
 
   const submitForStaking = async () => {
     if (!amount) {
@@ -83,6 +96,12 @@ export const Staking = () => {
     updateStatus();
   };
 
+  const setMaxAmount = () => {
+    isStake
+      ? setAmount(tokenBalanceStr ? Number(tokenBalanceStr) : 0)
+      : setAmount(stakedBalanceStr ? Number(stakedBalanceStr) : 0);
+  };
+
   return (
     <>
       <NextSeo title="Staking" description="Bunzz - Staking Boilerplate" />
@@ -91,36 +110,45 @@ export const Staking = () => {
           <div className="flex-col overflow-hidden rounded-lg bg-white shadow-card duration-200 dark:bg-light-dark">
             <div className="grid grid-cols-1 py-4 md:grid-cols-3">
               <div className="md-flex mx-4 flex-col rounded-lg bg-gray-100 p-4">
-                <div className="justin-between my-5 flex">
-                  <div className="flex">
-                    <Image
-                      src={Image1}
-                      placeholder="blur"
-                      layout="fixed"
-                      objectFit="cover"
-                      alt=""
-                    />
+                {address ? (
+                  <div className="my-5 flex text-[24px]">
+                    <span className="mx-auto">
+                      {address.slice(0, 6)}
+                      {'...'}
+                      {address.slice(address.length - 6)}
+                    </span>
                   </div>
-                  <div className="ml-4 text-3xl font-bold">Connect wallet</div>
-                </div>
+                ) : (
+                  <div className="justin-between my-5 flex text-[24px]">
+                    <div className="flex">
+                      <Image
+                        src={Image1}
+                        placeholder="blur"
+                        layout="fixed"
+                        objectFit="cover"
+                        alt=""
+                      />
+                    </div>
+                    <div className="ml-4 font-bold">Connect wallet</div>
+                  </div>
+                )}
 
                 <div className="my-6 rounded-lg bg-gray-700 p-3 text-white">
                   <InputLabel title="Total Balance" />
                   <div className="text-[16px] font-bold">
-                    {tokenBalance ? formatUnits(tokenBalance, 18, 3) : ''} BUNZ
+                    {tokenBalanceStr} BUNZ
                   </div>
                 </div>
                 <div className="my-6 rounded-lg bg-gray-200 p-3">
                   <InputLabel title="Total Staked Balance" />
                   <div className="text-[16px] font-bold">
-                    {stakedAmount ? formatUnits(stakedAmount, 18, 3) : ''} BUNZ
+                    {stakedBalanceStr} BUNZ
                   </div>
                 </div>
                 <div className="mt-4 rounded-lg bg-gray-200 p-3">
                   <InputLabel title="Classic Reward Balance" />
                   <div className="text-[16px] font-bold">
-                    {pendingReward ? formatUnits(pendingReward, 18, 3) : ''}{' '}
-                    BUNZ
+                    {rewardBalanceStr} BUNZ
                   </div>
                 </div>
               </div>
@@ -179,14 +207,25 @@ export const Staking = () => {
                     </div>
                     <div className="mt-4">
                       <InputLabel title="Amount" />
-                      <Input
-                        defaultValue={0}
-                        min={0}
-                        type="number"
-                        placeholder=""
-                        inputClassName="spin-button-hidden"
-                        onChange={(e) => setAmount(Number(e.target.value))}
-                      />
+                      <div className="flex">
+                        <Input
+                          min={0}
+                          value={amount}
+                          type="float"
+                          placeholder=""
+                          className="w-full"
+                          inputClassName="spin-button-hidden"
+                          onChange={(e) => setAmount(Number(e.target.value))}
+                        />
+                        <div className="ml-[-60px] flex items-center text-[18px] font-bold">
+                          <span
+                            className="hover:cursor-pointer"
+                            onClick={setMaxAmount}
+                          >
+                            MAX
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="md-flex mt-4 flex w-full justify-center rounded-lg">
