@@ -6,7 +6,7 @@ import { PowerIcon } from '@/components/icons/power';
 import { useModal } from '@/components/modal-views/context';
 import { useContext } from 'react';
 
-export const WalletConnect = () => {
+export const WalletConnect = ({ btnClassName }: { btnClassName?: string }) => {
   const { openModal } = useModal();
   const { address, disconnectWallet, balance } = useContext(WalletContext);
   return (
